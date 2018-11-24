@@ -124,11 +124,20 @@ public class Parser {
 
     private static String[] splitStringAtIndicies(int[] indexList, String value) {
         List<String> operatorSplit = new ArrayList<String>();
+        Arrays.sort(indexList);
+
+        if(indexList.length > 0) {
+            if(indexList[0] == 0) {
+                String[] array = {value};
+                return array;
+            }
+        }
 
         String valueSubstring = "";
         int startIndex = 0;
         for(int i = 0; i < indexList.length; i++) {
-            valueSubstring = value.substring(startIndex, indexList[i]).trim();
+            valueSubstring = value.substring(startIndex, indexList[i] - 1).trim();
+            Main.println("ValueSubstring: " + valueSubstring);
             if(!valueSubstring.isEmpty()) {
                 operatorSplit.add(valueSubstring);
                 startIndex = indexList[i] + 1;
@@ -141,33 +150,47 @@ public class Parser {
         return stringListToArray(operatorSplit);
     }
 
+    /*
     private static int[] determineOperatorIndicies(String[] array) {
-        String[] operators = {"+", "-", "*", "/", "%", "."};
+        String[] operators = {"+", "-", "*", "/", "%", ".("};
 
+        List<List<Integer>> listOfIndexLists = new ArrayList<List<Integer>>();
         List<Integer> indexList = new ArrayList<Integer>();
+        Main.println("indexList Size at Start: " + indexList.size());
 
         for(int i = 0; i < array.length; i++) {
             for (String operator : operators) {
+                Main.println("Searching for Operator: " + operator);
                 if(array[i].contains(operator)) {
+                    Main.println("Index of Operator: " + array[i].indexOf(operator));
                     indexList.add(array[i].indexOf(operator));
                 }
             }
+
         }
 
         //Convert list to array
         return intListToArray(indexList);
     }
+    */
 
     private static int[] determineOperatorIndicies(String string) {
-        String[] operators = {"+", "-", "*", "/", "%", "."};
+        String[] operators = {"+", "-", "*", "/", "%", ".("};
 
         List<Integer> indexList = new ArrayList<Integer>();
+        Main.println("Current String: " + string);
+        Main.println("indexList Size at Start: " + indexList.size());
 
         for (String operator : operators) {
+            Main.println("Searching for Operator: " + operator);
             if(string.contains(operator)) {
-                indexList.add(string.indexOf(operator));
+                Main.println("Index of Operator: " + string.indexOf(operator));
+                int index = string.indexOf(operator);
+                indexList.add(index);
             }
         }
+
+        Main.println("indexList Size at End: " + indexList.size() + "\n");
 
         //Convert list to array
         return intListToArray(indexList);
@@ -175,24 +198,38 @@ public class Parser {
 
     private static String[] determineRelationships(String value) {
         //First, split the value on white space
-        String[] whiteSpaceSplit = value.split(" ");
+        //String[] whiteSpaceSplit = value.split(" ");
+
+        String tempValue = value.replace(" ", "");
 
         //Then, determine if there are any operators within this assignment's value.
         //It may have only one element, then there are two cases here,
         //  1. There is only one variable in this value.
         //  2. There are no spaces between the elements, therefore we still need to find where the operators are.
         int[] operatorIndicies = {};
+        //OPERATOR INDICIES ISNT RIGHT HERE! THERE ARE MORE THAN ONE STRING BEING SEARCHED, THEREFORE I NEED A 2D MATRIX OF OPERATOR INDICIES!
+        /*
         if(whiteSpaceSplit.length > 1) {
             //There is clearly more than one relationship to extract
             //Filter through the list and check of any are operators
             operatorIndicies = determineOperatorIndicies(whiteSpaceSplit);
+            Main.println("WhiteSpaceSplit.length > 1");
+            Main.printStringArray(whiteSpaceSplit);
+            Main.println("OperatorIndicies:");
+            Main.printIntArray(operatorIndicies);
         }
         else if(whiteSpaceSplit.length == 1){
-            operatorIndicies = determineOperatorIndicies(whiteSpaceSplit[0]);
+        */
+            operatorIndicies = determineOperatorIndicies(tempValue);
+            Main.println("TempValue: " + tempValue);
+            Main.println("OperatorIndicies: s=" + operatorIndicies.length);
+            Main.printIntArray(operatorIndicies);
+            /*
         }
         else {
             System.out.println("Cant determine assignment's value/relationship!");
         }
+        */
 
         return splitStringAtIndicies(operatorIndicies, value);
     }
@@ -273,6 +310,25 @@ public class Parser {
         return variableListToArray(extractedVariables);
     }
 
+
+    public static Variable[] extractRelationships(Variable variable) {
+        List<Variable> extractedVariables = new ArrayList<Variable>();
+
+        String[] determinedRelationships = determineRelationships(variable.value);
+        Main.println("resolveRelationships - determinedRelationships: ");
+        Main.printStringArray(determinedRelationships);
+
+        for(String relation : determinedRelationships) {
+            if(relation.trim().equals(variable.name)) {
+                Variable tempVariable = new Variable(variable.type, relation);
+                extractedVariables.add(tempVariable);
+            }
+        }
+
+        return variableListToArray(extractedVariables);
+    }
+
+
     public static Variable[] resolveRelationships(Variable[] extractedVariables) {
         //For each variable, we need to evaluate its "value" string for mentioned variables.
         //  Essentially what we need to do is look at each "value" string.
@@ -281,21 +337,49 @@ public class Parser {
         //      If there is no whitespace, we will need to essentially run extractVariables() again on this string
         //          If I do extractVariables() from this line, it will return Variable objects for comparison which is good.
         List<Variable> resolvedVariables = new ArrayList<Variable>();
-        for(Variable variable : extractedVariables) {
-            String[] value = {variable.value};
-            Variable[] extractedRelations = extractVariables(value);
 
+        //OLD STUFF
+
+        //For every variable that I have extracted...
+        for(Variable variable : extractedVariables) {
+            //Create a String array to hold a single variable's value String, just for the sake of reusing a function...
+            String value = variable.value;
+            //Extract the variables from that String
+            //Variable[] extractedRelations = extractRelationships(value);
+            /*
+            String[] determinedRelationships = determineRelationships(value);
+            Main.println("resolveRelationships - determinedRelationships: ");
+            Main.printStringArray(determinedRelationships);
+            */
+
+            Variable[] extractedRelations = extractRelationships(variable);
+            Main.println("resolveRelationships - extractedRelations: ");
+            for(Variable relation : extractedRelations) {
+                Main.println("relation Name: " + relation.name);
+            }
+
+            Main.println("");
+
+            //Make a copy of the variable being inspected...
             Variable tempVariable = variable;
+            //Make a list to hold the created relationships
             List<Variable> tempRelationships = new ArrayList<Variable>();
 
+            //Loop through the extracted relations  and add them to the tempRelationships array
             for(Variable relation : extractedRelations) {
                 if(!tempRelationships.contains(relation)) {
                     tempRelationships.add(relation);
                 }
             }
 
+            //Assign the tempRelationshipsArray to the copied original variable tempVariable.
             tempVariable.relationships = variableListToArray(tempRelationships);
+
+            //Add the new resolved variable, with relationships defined as Variable objects, to the resolvedVariables list!
+            resolvedVariables.add(tempVariable);
         }
+        //Return the list once all of the looping is done.
+        //This means
         return variableListToArray(resolvedVariables);
     }
 
