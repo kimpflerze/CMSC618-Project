@@ -95,13 +95,17 @@ public class Parser {
     }
 
     private static String determineType(String definition) {
+        String[] whiteSpaceSplit = definition.split(" ");
+
         //This list of datatypes should still be expanded!
         String[] dataTypes = {"boolean", "byte", "char", "short", "int", "long", "float", "double",
         "String", "Integer", "List", "ArrayList"};
 
         for(String type : dataTypes) {
-            if(definition.contains(type)) {
-                return type;
+            for(String string : whiteSpaceSplit) {
+                if (string.contains(type)) {
+                    return type;
+                }
             }
         }
 
@@ -136,15 +140,15 @@ public class Parser {
         String valueSubstring = "";
         int startIndex = 0;
         for(int i = 0; i < indexList.length; i++) {
-            valueSubstring = value.substring(startIndex, indexList[i] - 1).trim();
+            valueSubstring = value.substring(startIndex, indexList[i]);
             Main.println("ValueSubstring: " + valueSubstring);
             if(!valueSubstring.isEmpty()) {
                 operatorSplit.add(valueSubstring);
-                startIndex = indexList[i] + 1;
+                startIndex = indexList[i];
             }
 
         }
-        valueSubstring = value.substring(startIndex, value.length()-1);
+        valueSubstring = value.substring(startIndex + 1, value.length());
         operatorSplit.add(valueSubstring);
 
         return stringListToArray(operatorSplit);
@@ -329,6 +333,14 @@ public class Parser {
     }
 
 
+    /*
+     * FINALLY FOUND MY ISSUE! TO make this way easier, assume assignments are properly spaced ie "a = b + 1;" and not "a=b+1;
+     * This makes it easier so our program can comprehend negatives instead of assuming they are variables or something else.
+     *
+     * So, if I assume values are spaced properly, I can easily just split on white space, make sure each string doesnt contain any operators,
+     * and if not, just look for variable names that match!
+     */
+
     public static Variable[] resolveRelationships(Variable[] extractedVariables) {
         //For each variable, we need to evaluate its "value" string for mentioned variables.
         //  Essentially what we need to do is look at each "value" string.
@@ -367,7 +379,7 @@ public class Parser {
 
             //Loop through the extracted relations  and add them to the tempRelationships array
             for(Variable relation : extractedRelations) {
-                if(!tempRelationships.contains(relation)) {
+                if(tempRelationships.contains(relation) == false) {
                     tempRelationships.add(relation);
                 }
             }

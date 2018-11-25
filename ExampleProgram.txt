@@ -27,6 +27,8 @@ public class ExampleProgram {
 
         String e = c + d;
 
+        String f = c + d + e;
+
         e = "Is there an echo in here?";
     }
 
