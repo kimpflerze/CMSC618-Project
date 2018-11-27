@@ -7,6 +7,7 @@ import java.util.regex.PatternSyntaxException;
 public class Parser {
 
     private static Scanner scanner = new Scanner(System.in);
+    private static List<String> variableNames = new ArrayList<String>();
 
     private static String[] stringListToArray(List<String> lines) {
         String[] array = new String[lines.size()];
@@ -140,58 +141,33 @@ public class Parser {
         String valueSubstring = "";
         int startIndex = 0;
         for(int i = 0; i < indexList.length; i++) {
-            valueSubstring = value.substring(startIndex, indexList[i]);
+            valueSubstring = value.substring(startIndex, indexList[i]).trim();
             Main.println("ValueSubstring: " + valueSubstring);
             if(!valueSubstring.isEmpty()) {
                 operatorSplit.add(valueSubstring);
-                startIndex = indexList[i];
+                startIndex = indexList[i] + 1;
             }
 
         }
-        valueSubstring = value.substring(startIndex + 1, value.length());
+        valueSubstring = value.substring(startIndex, value.length()).trim();
         operatorSplit.add(valueSubstring);
 
         return stringListToArray(operatorSplit);
     }
 
-    /*
-    private static int[] determineOperatorIndicies(String[] array) {
-        String[] operators = {"+", "-", "*", "/", "%", ".("};
-
-        List<List<Integer>> listOfIndexLists = new ArrayList<List<Integer>>();
-        List<Integer> indexList = new ArrayList<Integer>();
-        Main.println("indexList Size at Start: " + indexList.size());
-
-        for(int i = 0; i < array.length; i++) {
-            for (String operator : operators) {
-                Main.println("Searching for Operator: " + operator);
-                if(array[i].contains(operator)) {
-                    Main.println("Index of Operator: " + array[i].indexOf(operator));
-                    indexList.add(array[i].indexOf(operator));
-                }
-            }
-
-        }
-
-        //Convert list to array
-        return intListToArray(indexList);
-    }
-    */
-
     private static int[] determineOperatorIndicies(String string) {
-        String[] operators = {"+", "-", "*", "/", "%", ".("};
+        char[] operators = {'+', '-', '*', '/', '%'};
 
         List<Integer> indexList = new ArrayList<Integer>();
         Main.println("Current String: " + string);
         Main.println("indexList Size at Start: " + indexList.size());
-
-        for (String operator : operators) {
-            Main.println("Searching for Operator: " + operator);
-            if(string.contains(operator)) {
-                Main.println("Index of Operator: " + string.indexOf(operator));
-                int index = string.indexOf(operator);
-                indexList.add(index);
+        for (char oc : operators) {
+            for(int i = 0; i < string.length(); i++) {
+                if(string.charAt(i) == oc) {
+                    indexList.add(i);
+                }
             }
+            return intListToArray(indexList);
         }
 
         Main.println("indexList Size at End: " + indexList.size() + "\n");
@@ -204,7 +180,8 @@ public class Parser {
         //First, split the value on white space
         //String[] whiteSpaceSplit = value.split(" ");
 
-        String tempValue = value.replace(" ", "");
+        String tempValue = value;
+        //String tempValue = value.replace(" ", "");
 
         //Then, determine if there are any operators within this assignment's value.
         //It may have only one element, then there are two cases here,
@@ -323,9 +300,11 @@ public class Parser {
         Main.printStringArray(determinedRelationships);
 
         for(String relation : determinedRelationships) {
-            if(relation.trim().equals(variable.name)) {
-                Variable tempVariable = new Variable(variable.type, relation);
-                extractedVariables.add(tempVariable);
+            for(String existingVariableName : variableNames) {
+                if (relation.trim().equals(existingVariableName)) {
+                    Variable tempVariable = new Variable(variable.type, relation);
+                    extractedVariables.add(tempVariable);
+                }
             }
         }
 
@@ -349,6 +328,11 @@ public class Parser {
         //      If there is no whitespace, we will need to essentially run extractVariables() again on this string
         //          If I do extractVariables() from this line, it will return Variable objects for comparison which is good.
         List<Variable> resolvedVariables = new ArrayList<Variable>();
+
+        //Store all variable names in the global list definited above...
+        for(Variable variable : extractedVariables) {
+            variableNames.add(variable.name);
+        }
 
         //OLD STUFF
 

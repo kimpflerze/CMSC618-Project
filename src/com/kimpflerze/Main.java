@@ -1,5 +1,7 @@
 package com.kimpflerze;
 
+import com.sun.corba.se.impl.orbutil.graph.Graph;
+
 public class Main {
 
     public static void println(String string) {
@@ -55,14 +57,20 @@ public class Main {
                 println("   " + var.name);
             }
 
+            int varCounter = 0;
             int relationCounter = 0;
             for(Variable var : resolvedVariables) {
                 for(Variable relation : var.relationships) {
-                    println("#" + relationCounter + ": " + relation.name);
+                    println("#" + varCounter + ", " + relationCounter + ": " + relation.name);
                     relationCounter++;
                 }
+                varCounter ++;
                 relationCounter = 0;
             }
+
+            GraphDraw graphDraw = new GraphDraw();
+            graphDraw.DrawVarialbes(extractedVariables);
+
 
         }
 
