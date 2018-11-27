@@ -215,6 +215,63 @@ public class Parser {
         return splitStringAtIndicies(operatorIndicies, value);
     }
 
+    private static String [] determineAttributes (String value) {
+        String[] commasplit = value.split(",");
+        return commasplit;
+    }
+
+    private static String findbrackets (String value) {
+        return (value.substring(s.indexOf("(") + 1, s.indexOf(")")));
+    }
+
+    private static String[] determineRelationships1(String value) {
+        //First, split the value on white space
+        String[] whiteSpaceSplit = value.split(" ");
+        String tempValue = value;
+        int indexOfnew = ArrayUtils.indexOf(whiteSpaceSplit, "new");
+        if (indexOfnew > -1 ) {
+            Main.println("its a constructor");
+            String[] withoutnew = Arrays.copyOfRange(whiteSpaceSplit, 1, whiteSpaceSplit.length);
+            return(determineAttributes(findbrackets(Arrays.toString(withoutnew))));
+        } else if (value.indexOf('(') != -1 && value.indexOf(')') != -1) {
+            Main.println("its a function");
+            return(determineAttributes(findbrackets(value)));
+        } else {
+        //String tempValue = value.replace(" ", "");
+
+        //Then, determine if there are any operators within this assignment's value.
+        //It may have only one element, then there are two cases here,
+        //  1. There is only one variable in this value.
+        //  2. There are no spaces between the elements, therefore we still need to find where the operators are.
+            int[] operatorIndicies = {};
+        //OPERATOR INDICIES ISNT RIGHT HERE! THERE ARE MORE THAN ONE STRING BEING SEARCHED, THEREFORE I NEED A 2D MATRIX OF OPERATOR INDICIES!
+        /*
+        if(whiteSpaceSplit.length > 1) {
+            //There is clearly more than one relationship to extract
+            //Filter through the list and check of any are operators
+            operatorIndicies = determineOperatorIndicies(whiteSpaceSplit);
+            Main.println("WhiteSpaceSplit.length > 1");
+            Main.printStringArray(whiteSpaceSplit);
+            Main.println("OperatorIndicies:");
+            Main.printIntArray(operatorIndicies);
+        }
+        else if(whiteSpaceSplit.length == 1){
+        */
+            operatorIndicies = determineOperatorIndicies(tempValue);
+            Main.println("TempValue: " + tempValue);
+            Main.println("OperatorIndicies: s=" + operatorIndicies.length);
+            Main.printIntArray(operatorIndicies);
+            /*
+        }
+        else {
+            System.out.println("Cant determine assignment's value/relationship!");
+        }
+        */
+
+            return splitStringAtIndicies(operatorIndicies, value);
+        }
+    }
+
     private static String[] trySplitOn(String string, String[] splitStrings) {
         List<String> splitStringList = new ArrayList<String>();
         boolean succeeded = false;
