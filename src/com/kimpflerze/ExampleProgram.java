@@ -1,11 +1,23 @@
 package com.kimpflerze;
 
 public class ExampleProgram {
+    class dummy{
+        int x;
+        public dummy(int a) {
+            x = a;
+        }
+    }
+
+    public static double dummyfunc(int a, double b) {
+        return (a+b);
+    }
 
     public static void main(String[] args) {
         int a = 0;
 
         double b = 1.0;
+        test = new dummy(a);
+        func = dummyfunc(a,b);
 
         String c = "";
 
@@ -16,6 +28,7 @@ public class ExampleProgram {
         double[] mixedBagArray = new double[10];
 
         double sum = 0.0;
+
         for(int i = 0; i < mixedBagArray.length; i++) {
             mixedBagArray[i] = Math.random();
             sum += add(sum, mixedBagArray[i]);
