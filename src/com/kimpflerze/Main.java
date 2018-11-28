@@ -27,7 +27,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        String[] filePaths = {"ExampleProgram.txt"};
+        String[] filePaths = {"ExampleProgram.txt", "Parser.txt"};
         for(String path : filePaths) {
             String[] originalLines = Parser.loadFile(path);
 

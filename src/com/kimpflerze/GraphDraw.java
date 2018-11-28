@@ -24,42 +24,45 @@ public class GraphDraw extends JFrame {
 
     ArrayList<Node> nodes;
     ArrayList<edge> edges;
+    Random randC = new Random();
 
     public GraphDraw() { //Constructor
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	nodes = new ArrayList<Node>();
-	edges = new ArrayList<edge>();
-	width = 50;
-	height = 20;
-    }
+		nodes = new ArrayList<Node>();
+		edges = new ArrayList<edge>();
+		width = 50;
+		height = 20;
+		}
 
-    public GraphDraw(String name) { //Construct with label
-	this.setTitle(name);
-	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	nodes = new ArrayList<Node>();
-	edges = new ArrayList<edge>();
-	width = 100;
-	height = 100;
-    }
+		public GraphDraw(String name) { //Construct with label
+		this.setTitle(name);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		nodes = new ArrayList<Node>();
+		edges = new ArrayList<edge>();
+		width = 50;
+		height = 30;
+		}
 
-    class Node {
-	int x, y;
-	String name;
-	
-	public Node(String myName, int myX, int myY) {
-	    x = myX;
-	    y = myY;
-	    name = myName;
-	}
+		class Node {
+		int x, y;
+		String name;
+		Color color;
+
+		public Node(String myName, int myX, int myY) {
+			x = myX;
+			y = myY;
+			name = myName;
+			color  = new Color(randC.nextFloat(), randC.nextFloat(), randC.nextFloat());
+		}
     }
     
     class edge {
-	int i,j;
-	
-	public edge(int ii, int jj) {
-	    i = ii;
-	    j = jj;	    
-	}
+		int i,j;
+
+		public edge(int ii, int jj) {
+			i = ii;
+			j = jj;
+		}
     }
     
     public void addNode(String name, int x, int y) { 
@@ -84,24 +87,16 @@ public class GraphDraw extends JFrame {
 
 	Graphics2D g2 = (Graphics2D) g;
 	for (edge e : edges) {
-		r = rand.nextFloat();
-		gg = rand.nextFloat();
-		b = rand.nextFloat();
-		randomColor = new Color(r, gg, b);
 		g2.setStroke(new BasicStroke(3));
-		g2.setColor(randomColor);
+		g2.setColor(nodes.get(e.j).color);
 	    g2.drawLine(nodes.get(e.i).x, nodes.get(e.i).y,
 		     nodes.get(e.j).x, nodes.get(e.j).y);
 	}
 	
 	for (Node n : nodes) {
-		r = rand.nextFloat();
-		gg = rand.nextFloat();
-		b = rand.nextFloat();
-		randomColor = new Color(r, gg, b);
 	    int nodeWidth = Math.max(width, f.stringWidth(n.name)+width/2);
-	    g.setColor(randomColor);
-	    g.fillOval(n.x-nodeWidth/2, n.y-nodeHeight/2, 
+	    g.setColor(n.color);
+	    g.fillOval(n.x-nodeWidth/2, n.y-nodeHeight/2,
 		       nodeWidth, nodeHeight);
 	    g.setColor(Color.black);
 	    g.drawOval(n.x-nodeWidth/2, n.y-nodeHeight/2, 
@@ -117,6 +112,10 @@ public class GraphDraw extends JFrame {
     public void DrawVarialbes(Variable[] resolvedVariables) {
    	GraphDraw frame = new GraphDraw("Relationship Graph");
 
+   	final int FRAME_WIDTH = 1000;
+   	final int FRAME_HEIGHT = 1000;
+   	//final int NUMBER_NODES_PER_RING = 20;
+		final int NUMBER_NODES_PER_RING = resolvedVariables.length / 2;
 	 frame.setSize(1000,1000);
 	
 	 frame.setVisible(true);
@@ -133,17 +132,19 @@ public class GraphDraw extends JFrame {
 
     	//drawing nodes for all variables
     	ArrayList<Integer> list = new ArrayList<Integer>();
-    	for (int i = 0; i <360 ; i=i+30) {
+    	for (int i = 0; i <360 ; i=i+(360/NUMBER_NODES_PER_RING)) {
     		list.add(i);
     	}
     	int radius = ran.nextInt(200)+ 200;
     	Main.print("Radius: " + radius);
-    	int x_cen = 500;
-    	int y_cen = 500;
+    	int x_cen = FRAME_WIDTH/2;
+    	int y_cen = FRAME_HEIGHT/2;
+    	Main.println("Centers: " + x_cen + ", " + y_cen);
     	count = 0;
     	for(Variable v : resolvedVariables) {
-    		if (count > 35) {
+    		if (count >= NUMBER_NODES_PER_RING) {
     			radius = ran.nextInt(400)+100;
+    			count = 0;
     		}
     		int x = (int)(radius * Math.cos(Math.toRadians(list.get(count))));
     		int y = (int)(radius * Math.sin(Math.toRadians(list.get(count))));
@@ -173,12 +174,11 @@ public class GraphDraw extends JFrame {
     	}
      }
 
-// class testGraphDraw {
-    //Here is some example syntax for the GraphDraw class
+     //THIS FUNCTION IS FOR TESTING ONLY! IT DOESNT REALLY EXECUTE IN NORMAL RUNS!
     public static void main(String[] args) {
 	GraphDraw frame = new GraphDraw("Test Window");
 
-	frame.setSize(1000,1000);
+	frame.setSize(3000,3000);
 	
 	frame.setVisible(true);
 
