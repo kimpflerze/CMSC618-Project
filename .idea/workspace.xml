@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89268621-c4cd-46b4-a3b5-6eb28a53889e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/kimpflerze/GraphDraw.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GraphDraw.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CMSC618JavaParser/com/kimpflerze/ExampleProgram.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/kimpflerze/ExampleProgram.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CMSC618JavaParser/com/kimpflerze/Parser.class" afterPath="$PROJECT_DIR$/out/production/CMSC618JavaParser/com/kimpflerze/Parser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExampleProgram.txt" afterPath="$PROJECT_DIR$/ExampleProgram.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kimpflerze/Main.java" afterPath="$PROJECT_DIR$/src/com/kimpflerze/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kimpflerze/Parser.java" afterPath="$PROJECT_DIR$/src/com/kimpflerze/Parser.java" />
     </list>
@@ -20,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="68" column="13" lean-forward="true" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
+            <state relative-caret-position="316">
+              <caret line="48" column="42" lean-forward="true" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -33,14 +33,15 @@
       <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-215">
-              <caret line="306" column="17" lean-forward="true" selection-start-line="306" selection-start-column="17" selection-end-line="306" selection-end-column="17" />
+            <state relative-caret-position="210">
+              <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#256#264#0" expanded="true" />
                 <element signature="e#5159#5168#0" expanded="true" />
-                <element signature="method#doesVariableExist#0;class#Parser#0" expanded="false" />
-                <element signature="method#extractVariables#0;class#Parser#0" expanded="false" />
+                <element signature="e#10587#10595#0" expanded="true" />
+                <element signature="e#11580#11590#0" expanded="true" />
+                <element signature="e#13379#13389#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -60,31 +61,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Variable.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Variable.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Variable.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
               <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-              <folding>
-                <element signature="e#508#509#0" expanded="true" />
-                <element signature="e#540#541#0" expanded="true" />
-                <element signature="e#580#581#0" expanded="true" />
-                <element signature="e#612#613#0" expanded="true" />
-                <element signature="e#654#655#0" expanded="true" />
-                <element signature="e#688#689#0" expanded="true" />
-                <element signature="e#750#751#0" expanded="true" />
-                <element signature="e#800#801#0" expanded="true" />
-                <element signature="e#831#832#0" expanded="true" />
-                <element signature="e#863#864#0" expanded="true" />
-                <element signature="e#894#895#0" expanded="true" />
-                <element signature="e#926#927#0" expanded="true" />
-                <element signature="e#958#959#0" expanded="true" />
-                <element signature="e#991#992#0" expanded="true" />
-                <element signature="e#1035#1036#0" expanded="true" />
-                <element signature="e#1076#1077#0" expanded="true" />
-                <element signature="e#1118#1119#0" expanded="true" />
-                <element signature="e#1165#1166#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -92,8 +74,8 @@
       <file leaf-file-name="ExampleProgram.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ExampleProgram.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="29" lean-forward="false" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+            <state relative-caret-position="495">
+              <caret line="33" column="45" lean-forward="false" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -119,6 +101,13 @@
       <find>ValueSubString</find>
       <find>Current String</find>
       <find>TempValue</find>
+      <find>determineRelation</find>
+      <find>its a const</find>
+      <find>Test 3 Value</find>
+      <find>add(</find>
+      <find>its</find>
+      <find>search</find>
+      <find>test</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -132,13 +121,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/kimpflerze/ExampleProgram.java" />
         <option value="$PROJECT_DIR$/src/com/kimpflerze/Variable.java" />
-        <option value="$PROJECT_DIR$/ExampleProgram.txt" />
         <option value="$PROJECT_DIR$/src/GraphDraw.java" />
-        <option value="$PROJECT_DIR$/src/com/kimpflerze/Parser.java" />
         <option value="$PROJECT_DIR$/src/com/kimpflerze/GraphDraw.java" />
+        <option value="$PROJECT_DIR$/src/com/kimpflerze/ExampleProgram.java" />
+        <option value="$PROJECT_DIR$/ExampleProgram.txt" />
         <option value="$PROJECT_DIR$/src/com/kimpflerze/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/kimpflerze/Parser.java" />
       </list>
     </option>
   </component>
@@ -303,7 +292,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="1027" extended-state="1" />
+    <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -320,6 +309,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19821429" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -327,11 +317,30 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40418848" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19821429" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -358,8 +367,9 @@
             <element signature="imports" expanded="true" />
             <element signature="e#256#264#0" expanded="true" />
             <element signature="e#5159#5168#0" expanded="true" />
-            <element signature="method#doesVariableExist#0;class#Parser#0" expanded="false" />
-            <element signature="method#extractVariables#0;class#Parser#0" expanded="false" />
+            <element signature="e#10587#10595#0" expanded="true" />
+            <element signature="e#11580#11590#0" expanded="true" />
+            <element signature="e#13379#13389#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -380,26 +390,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding>
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#580#581#0" expanded="true" />
-            <element signature="e#612#613#0" expanded="true" />
-            <element signature="e#654#655#0" expanded="true" />
-            <element signature="e#688#689#0" expanded="true" />
-            <element signature="e#750#751#0" expanded="true" />
-            <element signature="e#800#801#0" expanded="true" />
-            <element signature="e#831#832#0" expanded="true" />
-            <element signature="e#863#864#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#926#927#0" expanded="true" />
-            <element signature="e#958#959#0" expanded="true" />
-            <element signature="e#991#992#0" expanded="true" />
-            <element signature="e#1035#1036#0" expanded="true" />
-            <element signature="e#1076#1077#0" expanded="true" />
-            <element signature="e#1118#1119#0" expanded="true" />
-            <element signature="e#1165#1166#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -419,52 +410,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ExampleProgram.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="29" lean-forward="false" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Variable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding>
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#580#581#0" expanded="true" />
-            <element signature="e#612#613#0" expanded="true" />
-            <element signature="e#654#655#0" expanded="true" />
-            <element signature="e#688#689#0" expanded="true" />
-            <element signature="e#750#751#0" expanded="true" />
-            <element signature="e#800#801#0" expanded="true" />
-            <element signature="e#831#832#0" expanded="true" />
-            <element signature="e#863#864#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#926#927#0" expanded="true" />
-            <element signature="e#958#959#0" expanded="true" />
-            <element signature="e#991#992#0" expanded="true" />
-            <element signature="e#1035#1036#0" expanded="true" />
-            <element signature="e#1076#1077#0" expanded="true" />
-            <element signature="e#1118#1119#0" expanded="true" />
-            <element signature="e#1165#1166#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-215">
-          <caret line="306" column="17" lean-forward="true" selection-start-line="306" selection-start-column="17" selection-end-line="306" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#256#264#0" expanded="true" />
-            <element signature="e#5159#5168#0" expanded="true" />
-            <element signature="method#doesVariableExist#0;class#Parser#0" expanded="false" />
-            <element signature="method#extractVariables#0;class#Parser#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -480,10 +430,143 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ExampleProgram.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="34" column="22" lean-forward="false" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="68" column="13" lean-forward="true" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
+        <state relative-caret-position="298">
+          <caret line="64" column="38" lean-forward="true" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="172" column="74" lean-forward="true" selection-start-line="172" selection-start-column="74" selection-end-line="172" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#256#264#0" expanded="true" />
+            <element signature="e#5159#5168#0" expanded="true" />
+            <element signature="e#10587#10595#0" expanded="true" />
+            <element signature="e#11580#11590#0" expanded="true" />
+            <element signature="e#13379#13389#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4230">
+          <caret line="334" column="0" lean-forward="true" selection-start-line="334" selection-start-column="0" selection-end-line="334" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#256#264#0" expanded="true" />
+            <element signature="e#5159#5168#0" expanded="true" />
+            <element signature="e#10587#10595#0" expanded="true" />
+            <element signature="e#11580#11590#0" expanded="true" />
+            <element signature="e#13379#13389#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/GraphDraw.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#4202#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#2944#2961#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Variable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExampleProgram.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="29" lean-forward="false" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/ExampleProgram.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="15" column="18" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/GraphDraw.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="116" column="29" lean-forward="true" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#4202#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#2944#2961#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExampleProgram.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="45" lean-forward="false" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="48" column="42" lean-forward="true" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#256#264#0" expanded="true" />
+            <element signature="e#5159#5168#0" expanded="true" />
+            <element signature="e#10587#10595#0" expanded="true" />
+            <element signature="e#11580#11590#0" expanded="true" />
+            <element signature="e#13379#13389#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Variable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
           <folding />
         </state>
       </provider>

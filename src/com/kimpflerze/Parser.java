@@ -216,25 +216,37 @@ public class Parser {
     }
 
     private static String [] determineAttributes (String value) {
+        Main.println("Test3");
+        Main.println("Test 3 Value: " + value);
         String[] commasplit = value.split(",");
+
         return commasplit;
     }
 
     private static String findbrackets (String value) {
-        return (value.substring(s.indexOf("(") + 1, s.indexOf(")")));
+        Main.println("Test1");
+        Main.println("Test 1 Value: " + value);
+        return (value.substring(value.indexOf("(") + 1, value.indexOf(")")));
     }
 
     private static String[] determineRelationships1(String value) {
         //First, split the value on white space
+        Main.println("Searching relationships for    " + value);
         String[] whiteSpaceSplit = value.split(" ");
         String tempValue = value;
-        int indexOfnew = ArrayUtils.indexOf(whiteSpaceSplit, "new");
-        if (indexOfnew > -1 ) {
+
+
+        int indexOfnew = Arrays.asList(whiteSpaceSplit).indexOf("new");
+
+        Main.println("Test2");
+
+        if (indexOfnew > -1 && value.indexOf('(') != -1 && value.indexOf(')') != -1) {
             Main.println("its a constructor");
             String[] withoutnew = Arrays.copyOfRange(whiteSpaceSplit, 1, whiteSpaceSplit.length);
             return(determineAttributes(findbrackets(Arrays.toString(withoutnew))));
-        } else if (value.indexOf('(') != -1 && value.indexOf(')') != -1) {
+        } else if (value.indexOf('(') != -1 && value.indexOf(')') != -1 && value.indexOf(',') != -1) {
             Main.println("its a function");
+            Main.println(value);
             return(determineAttributes(findbrackets(value)));
         } else {
         //String tempValue = value.replace(" ", "");
@@ -351,8 +363,8 @@ public class Parser {
 
     public static Variable[] extractRelationships(Variable variable) {
         List<Variable> extractedVariables = new ArrayList<Variable>();
-
-        String[] determinedRelationships = determineRelationships(variable.value);
+        Main.println("in extract relationships looking for  " + variable.value);
+        String[] determinedRelationships = determineRelationships1(variable.value);
         Main.println("resolveRelationships - determinedRelationships: ");
         Main.printStringArray(determinedRelationships);
 

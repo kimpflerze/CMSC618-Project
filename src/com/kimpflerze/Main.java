@@ -61,7 +61,7 @@ public class Main {
             int relationCounter = 0;
             for(Variable var : resolvedVariables) {
                 for(Variable relation : var.relationships) {
-                    println("#" + varCounter + ", " + relationCounter + ": " + relation.name);
+                    println("#" + varCounter + ", " + relationCounter + ": VarName = " +var.name + ", RelationName = "+ relation.name);
                     relationCounter++;
                 }
                 varCounter ++;
