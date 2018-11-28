@@ -141,10 +141,18 @@ public class GraphDraw extends JFrame {
     	//drwaing edges between related variables
     	for(Variable v : resolvedVariables) {
     		int a = hmap.get(v.getName());
+			Main.println("i am graphing " + v.getName() + " and I found it an hmap index " + a);
     		Variable [] rv = v.getRelationships();
+
     		for (Variable v2 : rv) {
-    			int b = hmap.get(v2.getName());
-    			frame.addEdge(a,b);
+				String temp = v2.getName();
+				
+				int b = hmap.get(temp);
+    			Main.println("parent var " + v.getName() + " relation with " + v2.getName() + " and I found it an hmap index " + b);
+
+    			if (!v.getName().trim().equals(v2.getName().trim())) {
+					frame.addEdge(a, b);
+				}
 			}
     	}
 

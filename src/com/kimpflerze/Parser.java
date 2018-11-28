@@ -177,48 +177,34 @@ public class Parser {
     }
 
     private static String[] determineRelationships(String value) {
-        //First, split the value on white space
-        //String[] whiteSpaceSplit = value.split(" ");
-
         String tempValue = value;
         //String tempValue = value.replace(" ", "");
 
-        //Then, determine if there are any operators within this assignment's value.
-        //It may have only one element, then there are two cases here,
-        //  1. There is only one variable in this value.
-        //  2. There are no spaces between the elements, therefore we still need to find where the operators are.
         int[] operatorIndicies = {};
-        //OPERATOR INDICIES ISNT RIGHT HERE! THERE ARE MORE THAN ONE STRING BEING SEARCHED, THEREFORE I NEED A 2D MATRIX OF OPERATOR INDICIES!
-        /*
-        if(whiteSpaceSplit.length > 1) {
-            //There is clearly more than one relationship to extract
-            //Filter through the list and check of any are operators
-            operatorIndicies = determineOperatorIndicies(whiteSpaceSplit);
-            Main.println("WhiteSpaceSplit.length > 1");
-            Main.printStringArray(whiteSpaceSplit);
-            Main.println("OperatorIndicies:");
-            Main.printIntArray(operatorIndicies);
-        }
-        else if(whiteSpaceSplit.length == 1){
-        */
-            operatorIndicies = determineOperatorIndicies(tempValue);
-            Main.println("TempValue: " + tempValue);
-            Main.println("OperatorIndicies: s=" + operatorIndicies.length);
-            Main.printIntArray(operatorIndicies);
-            /*
-        }
-        else {
-            System.out.println("Cant determine assignment's value/relationship!");
-        }
-        */
+
+        operatorIndicies = determineOperatorIndicies(tempValue);
+        Main.println("TempValue: " + tempValue);
+        Main.println("OperatorIndicies: s=" + operatorIndicies.length);
+        Main.printIntArray(operatorIndicies);
 
         return splitStringAtIndicies(operatorIndicies, value);
     }
 
     private static String [] determineAttributes (String value) {
+        String bracklessValue = value;
+
+        if(value.contains("[")) {
+            int openBracketIndex = -1;
+            openBracketIndex = value.indexOf("[");
+            bracklessValue = value.substring(0, openBracketIndex);
+        }
         Main.println("Test3");
         Main.println("Test 3 Value: " + value);
-        String[] commasplit = value.split(",");
+        String[] commasplit = bracklessValue.split(",");
+
+        for(int i = 0; i < commasplit.length; i++) {
+            commasplit[i] = commasplit[i].trim();
+        }
 
         return commasplit;
     }
@@ -249,38 +235,16 @@ public class Parser {
             Main.println(value);
             return(determineAttributes(findbrackets(value)));
         } else {
-        //String tempValue = value.replace(" ", "");
 
-        //Then, determine if there are any operators within this assignment's value.
-        //It may have only one element, then there are two cases here,
-        //  1. There is only one variable in this value.
-        //  2. There are no spaces between the elements, therefore we still need to find where the operators are.
-            int[] operatorIndicies = {};
-        //OPERATOR INDICIES ISNT RIGHT HERE! THERE ARE MORE THAN ONE STRING BEING SEARCHED, THEREFORE I NEED A 2D MATRIX OF OPERATOR INDICIES!
-        /*
-        if(whiteSpaceSplit.length > 1) {
-            //There is clearly more than one relationship to extract
-            //Filter through the list and check of any are operators
-            operatorIndicies = determineOperatorIndicies(whiteSpaceSplit);
-            Main.println("WhiteSpaceSplit.length > 1");
-            Main.printStringArray(whiteSpaceSplit);
-            Main.println("OperatorIndicies:");
-            Main.printIntArray(operatorIndicies);
-        }
-        else if(whiteSpaceSplit.length == 1){
-        */
-            operatorIndicies = determineOperatorIndicies(tempValue);
-            Main.println("TempValue: " + tempValue);
-            Main.println("OperatorIndicies: s=" + operatorIndicies.length);
-            Main.printIntArray(operatorIndicies);
-            /*
-        }
-        else {
-            System.out.println("Cant determine assignment's value/relationship!");
-        }
-        */
+        int[] operatorIndicies = {};
 
-            return splitStringAtIndicies(operatorIndicies, value);
+        operatorIndicies = determineOperatorIndicies(tempValue);
+        Main.println("TempValue: " + tempValue);
+        Main.println("OperatorIndicies: s=" + operatorIndicies.length);
+        Main.printIntArray(operatorIndicies);
+
+
+        return splitStringAtIndicies(operatorIndicies, value);
         }
     }
 
@@ -333,27 +297,22 @@ public class Parser {
 
                 if(doesVariableExist(newVariable, extractedVariables) == false) {
                     extractedVariables.add(newVariable);
+                } else {
+                    for(int i = 0; i < extractedVariables.size(); i++) {
+                    //for (Variable var : extractedVariables ) {
+                        if (extractedVariables.get(i).name.equals(newVariable.name)) {
+                            Main.println("hello world");
+                           Variable temp = extractedVariables.get(i);
+                           temp.addValue(value);
+                            extractedVariables.set(i, temp);
+                            Main.println("extracted variable " + temp.name + " new value "+ temp.value.toString());
+                        }
+                    }
                 }
-
-                /*
-                Main.println("New Variable:");
-                Main.println("  Definition: " + definition);
-                Main.println("  Value: " + value);
-                Main.println("      Type: " + type);
-                Main.println("      Name: " + name);
-                */
-
-                //Handle the value side
-//            Main.println("      Relationships:");
-//            String[] relationships = determineRelationships(value);
-
-//            Main.printStringArray(relationships);
-
                 Main.println("");
             } catch(IndexOutOfBoundsException e) {
                 extractedVariables.add(new Variable("No Type Found!", definition));
             }
-
 
         }
 
@@ -363,16 +322,21 @@ public class Parser {
 
     public static Variable[] extractRelationships(Variable variable) {
         List<Variable> extractedVariables = new ArrayList<Variable>();
-        Main.println("in extract relationships looking for  " + variable.value);
-        String[] determinedRelationships = determineRelationships1(variable.value);
-        Main.println("resolveRelationships - determinedRelationships: ");
-        Main.printStringArray(determinedRelationships);
+        Main.println("in extract relationships with " + variable.name + " looking for  " + variable.value);
+        Main.println("Length of variable's Value list: " + variable.value.size());
+        for(int i = 0; i < variable.value.size(); i++) {
+            String[] determinedRelationships = determineRelationships1(variable.value.get(i));
 
-        for(String relation : determinedRelationships) {
-            for(String existingVariableName : variableNames) {
-                if (relation.trim().equals(existingVariableName)) {
-                    Variable tempVariable = new Variable(variable.type, relation);
-                    extractedVariables.add(tempVariable);
+            Main.println("resolveRelationships - determinedRelationships: ");
+            Main.printStringArray(determinedRelationships);
+
+            for (String relation : determinedRelationships) {
+                for (String existingVariableName : variableNames) {
+                    if (relation.trim().equals(existingVariableName)) {
+                        Main.println("");
+                        Variable tempVariable = new Variable(variable.type, relation);
+                        extractedVariables.add(tempVariable);
+                    }
                 }
             }
         }
@@ -390,12 +354,7 @@ public class Parser {
      */
 
     public static Variable[] resolveRelationships(Variable[] extractedVariables) {
-        //For each variable, we need to evaluate its "value" string for mentioned variables.
-        //  Essentially what we need to do is look at each "value" string.
-        //  Check if any of the variable names exist within those strings!
-        //      If there are whitespace characters in between, we can find the variables easily!
-        //      If there is no whitespace, we will need to essentially run extractVariables() again on this string
-        //          If I do extractVariables() from this line, it will return Variable objects for comparison which is good.
+
         List<Variable> resolvedVariables = new ArrayList<Variable>();
 
         //Store all variable names in the global list definited above...
@@ -403,12 +362,15 @@ public class Parser {
             variableNames.add(variable.name);
         }
 
-        //OLD STUFF
+
 
         //For every variable that I have extracted...
         for(Variable variable : extractedVariables) {
+
             //Create a String array to hold a single variable's value String, just for the sake of reusing a function...
-            String value = variable.value;
+
+
+
             //Extract the variables from that String
             //Variable[] extractedRelations = extractRelationships(value);
             /*

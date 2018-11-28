@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89268621-c4cd-46b4-a3b5-6eb28a53889e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CMSC618JavaParser/com/kimpflerze/ExampleProgram.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/kimpflerze/ExampleProgram.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CMSC618JavaParser/com/kimpflerze/Parser.class" afterPath="$PROJECT_DIR$/out/production/CMSC618JavaParser/com/kimpflerze/Parser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExampleProgram.txt" afterPath="$PROJECT_DIR$/ExampleProgram.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kimpflerze/GraphDraw.java" afterPath="$PROJECT_DIR$/src/com/kimpflerze/GraphDraw.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kimpflerze/Main.java" afterPath="$PROJECT_DIR$/src/com/kimpflerze/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kimpflerze/Parser.java" afterPath="$PROJECT_DIR$/src/com/kimpflerze/Parser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kimpflerze/Variable.java" afterPath="$PROJECT_DIR$/src/com/kimpflerze/Variable.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,7 +20,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
+            <state relative-caret-position="378">
               <caret line="48" column="42" lean-forward="true" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
               <folding />
             </state>
@@ -33,27 +30,27 @@
       <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+            <state relative-caret-position="309">
+              <caret line="205" column="49" lean-forward="false" selection-start-line="205" selection-start-column="49" selection-end-line="205" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#256#264#0" expanded="true" />
                 <element signature="e#5159#5168#0" expanded="true" />
-                <element signature="e#10587#10595#0" expanded="true" />
-                <element signature="e#11580#11590#0" expanded="true" />
-                <element signature="e#13379#13389#0" expanded="true" />
+                <element signature="e#8455#8463#0" expanded="true" />
+                <element signature="e#9448#9458#0" expanded="true" />
+                <element signature="e#11376#11386#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GraphDraw.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GraphDraw.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/GraphDraw.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="116" column="29" lean-forward="true" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="29" />
+            <state relative-caret-position="278">
+              <caret line="148" column="16" lean-forward="false" selection-start-line="148" selection-start-column="16" selection-end-line="148" selection-end-column="16" />
               <folding>
-                <element signature="e#0#4202#0" expanded="true" />
+                <element signature="e#0#4509#0" expanded="true" />
                 <element signature="imports" expanded="true" />
                 <element signature="e#2944#2961#0" expanded="true" />
               </folding>
@@ -61,12 +58,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Variable.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Variable.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Variable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-              <folding />
+            <state relative-caret-position="379">
+              <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#161#169#0" expanded="true" />
+                <element signature="e#889#890#0" expanded="true" />
+                <element signature="e#923#924#0" expanded="true" />
+                <element signature="e#964#965#0" expanded="true" />
+                <element signature="e#1001#1002#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,8 +78,8 @@
       <file leaf-file-name="ExampleProgram.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ExampleProgram.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="45" lean-forward="false" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="45" />
+            <state relative-caret-position="210">
+              <caret line="14" column="44" lean-forward="true" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -108,6 +112,16 @@
       <find>its</find>
       <find>search</find>
       <find>test</find>
+      <find>extractVariable</find>
+      <find>in ext</find>
+      <find>in extract relationships looking for</find>
+      <find>new value</find>
+      <find>new</find>
+      <find>extractRelations</find>
+      <find>{</find>
+      <find>sum</find>
+      <find>rv</find>
+      <find>determineAtt</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -121,17 +135,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/kimpflerze/Variable.java" />
         <option value="$PROJECT_DIR$/src/GraphDraw.java" />
-        <option value="$PROJECT_DIR$/src/com/kimpflerze/GraphDraw.java" />
         <option value="$PROJECT_DIR$/src/com/kimpflerze/ExampleProgram.java" />
         <option value="$PROJECT_DIR$/ExampleProgram.txt" />
+        <option value="$PROJECT_DIR$/src/com/kimpflerze/Variable.java" />
         <option value="$PROJECT_DIR$/src/com/kimpflerze/Main.java" />
         <option value="$PROJECT_DIR$/src/com/kimpflerze/Parser.java" />
+        <option value="$PROJECT_DIR$/src/com/kimpflerze/GraphDraw.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="19" />
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="1027" />
@@ -292,7 +307,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
+    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -367,9 +382,9 @@
             <element signature="imports" expanded="true" />
             <element signature="e#256#264#0" expanded="true" />
             <element signature="e#5159#5168#0" expanded="true" />
-            <element signature="e#10587#10595#0" expanded="true" />
-            <element signature="e#11580#11590#0" expanded="true" />
-            <element signature="e#13379#13389#0" expanded="true" />
+            <element signature="e#8455#8463#0" expanded="true" />
+            <element signature="e#9448#9458#0" expanded="true" />
+            <element signature="e#11376#11386#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -379,7 +394,7 @@
         <state relative-caret-position="75">
           <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
           <folding>
-            <element signature="e#0#4202#0" expanded="true" />
+            <element signature="e#0#4509#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#2944#2961#0" expanded="true" />
           </folding>
@@ -390,7 +405,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#161#169#0" expanded="true" />
+            <element signature="e#889#890#0" expanded="true" />
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#964#965#0" expanded="true" />
+            <element signature="e#1001#1002#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -414,7 +436,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#161#169#0" expanded="true" />
+            <element signature="e#889#890#0" expanded="true" />
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#964#965#0" expanded="true" />
+            <element signature="e#1001#1002#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -423,7 +452,7 @@
         <state relative-caret-position="59">
           <caret line="116" column="29" lean-forward="true" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="29" />
           <folding>
-            <element signature="e#0#4202#0" expanded="true" />
+            <element signature="e#0#4509#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#2944#2961#0" expanded="true" />
           </folding>
@@ -454,9 +483,9 @@
             <element signature="imports" expanded="true" />
             <element signature="e#256#264#0" expanded="true" />
             <element signature="e#5159#5168#0" expanded="true" />
-            <element signature="e#10587#10595#0" expanded="true" />
-            <element signature="e#11580#11590#0" expanded="true" />
-            <element signature="e#13379#13389#0" expanded="true" />
+            <element signature="e#8455#8463#0" expanded="true" />
+            <element signature="e#9448#9458#0" expanded="true" />
+            <element signature="e#11376#11386#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -477,9 +506,9 @@
             <element signature="imports" expanded="true" />
             <element signature="e#256#264#0" expanded="true" />
             <element signature="e#5159#5168#0" expanded="true" />
-            <element signature="e#10587#10595#0" expanded="true" />
-            <element signature="e#11580#11590#0" expanded="true" />
-            <element signature="e#13379#13389#0" expanded="true" />
+            <element signature="e#8455#8463#0" expanded="true" />
+            <element signature="e#9448#9458#0" expanded="true" />
+            <element signature="e#11376#11386#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -489,7 +518,7 @@
         <state relative-caret-position="75">
           <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
           <folding>
-            <element signature="e#0#4202#0" expanded="true" />
+            <element signature="e#0#4509#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#2944#2961#0" expanded="true" />
           </folding>
@@ -500,7 +529,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#161#169#0" expanded="true" />
+            <element signature="e#889#890#0" expanded="true" />
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#964#965#0" expanded="true" />
+            <element signature="e#1001#1002#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -520,54 +556,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/GraphDraw.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="116" column="29" lean-forward="true" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#4202#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#2944#2961#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExampleProgram.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="45" lean-forward="false" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
+        <state relative-caret-position="378">
           <caret line="48" column="42" lean-forward="true" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Parser.java">
+    <entry file="file://$PROJECT_DIR$/ExampleProgram.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#256#264#0" expanded="true" />
-            <element signature="e#5159#5168#0" expanded="true" />
-            <element signature="e#10587#10595#0" expanded="true" />
-            <element signature="e#11580#11590#0" expanded="true" />
-            <element signature="e#13379#13389#0" expanded="true" />
-          </folding>
+          <caret line="14" column="44" lean-forward="true" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Variable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding />
+        <state relative-caret-position="379">
+          <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#161#169#0" expanded="true" />
+            <element signature="e#889#890#0" expanded="true" />
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#964#965#0" expanded="true" />
+            <element signature="e#1001#1002#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="205" column="49" lean-forward="false" selection-start-line="205" selection-start-column="49" selection-end-line="205" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#256#264#0" expanded="true" />
+            <element signature="e#5159#5168#0" expanded="true" />
+            <element signature="e#8455#8463#0" expanded="true" />
+            <element signature="e#9448#9458#0" expanded="true" />
+            <element signature="e#11376#11386#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/GraphDraw.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="148" column="16" lean-forward="false" selection-start-line="148" selection-start-column="16" selection-end-line="148" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#4509#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#2944#2961#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

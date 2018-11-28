@@ -47,6 +47,7 @@ public class Main {
             println("Extracted Variables' Names:");
             for(Variable var : extractedVariables) {
                 println("   " + var.name);
+                println("extracted variable " + var.value.toString());
             }
 
 
