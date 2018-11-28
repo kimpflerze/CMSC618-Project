@@ -6,9 +6,8 @@ This class is really elementary, but lets you draw
 reasonably nice graphs/trees/diagrams. Feel free to 
 improve upon it!
  */
+package com.kimpflerze;
 
-
-// package com.kimpflerze;
 import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -30,8 +29,8 @@ public class GraphDraw extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	nodes = new ArrayList<Node>();
 	edges = new ArrayList<edge>();
-	width = 30;
-	height = 30;
+	width = 50;
+	height = 20;
     }
 
     public GraphDraw(String name) { //Construct with label
@@ -39,7 +38,7 @@ public class GraphDraw extends JFrame {
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	nodes = new ArrayList<Node>();
 	edges = new ArrayList<edge>();
-	width = 99;
+	width = 100;
 	height = 100;
     }
 
@@ -83,15 +82,15 @@ public class GraphDraw extends JFrame {
 	float b = rand.nextFloat();
 	Color randomColor = new Color(r, gg, b);
 
-	
+	Graphics2D g2 = (Graphics2D) g;
 	for (edge e : edges) {
 		r = rand.nextFloat();
 		gg = rand.nextFloat();
 		b = rand.nextFloat();
 		randomColor = new Color(r, gg, b);
-		
-		g.setColor(randomColor);
-	    g.drawLine(nodes.get(e.i).x, nodes.get(e.i).y,
+		g2.setStroke(new BasicStroke(3));
+		g2.setColor(randomColor);
+	    g2.drawLine(nodes.get(e.i).x, nodes.get(e.i).y,
 		     nodes.get(e.j).x, nodes.get(e.j).y);
 	}
 	
@@ -107,7 +106,8 @@ public class GraphDraw extends JFrame {
 	    g.setColor(Color.black);
 	    g.drawOval(n.x-nodeWidth/2, n.y-nodeHeight/2, 
 		       nodeWidth, nodeHeight);
-	    
+
+		g.setColor(Color.white);
 	    g.drawString(n.name, n.x-f.stringWidth(n.name)/2,
 			 n.y+f.getHeight()/2);
 	}
@@ -115,7 +115,7 @@ public class GraphDraw extends JFrame {
 // }
 
     public void DrawVarialbes(Variable[] resolvedVariables) {
-   	GraphDraw frame = new GraphDraw("Test Window");
+   	GraphDraw frame = new GraphDraw("Relationship Graph");
 
 	 frame.setSize(1000,1000);
 	
@@ -133,10 +133,11 @@ public class GraphDraw extends JFrame {
 
     	//drawing nodes for all variables
     	ArrayList<Integer> list = new ArrayList<Integer>();
-    	for (int i = 0; i <360 ; i+10) {
+    	for (int i = 0; i <360 ; i=i+30) {
     		list.add(i);
     	}
-    	int radius = ran.nextInt(400)+ 100;
+    	int radius = ran.nextInt(200)+ 200;
+    	Main.print("Radius: " + radius);
     	int x_cen = 500;
     	int y_cen = 500;
     	count = 0;
@@ -144,30 +145,33 @@ public class GraphDraw extends JFrame {
     		if (count > 35) {
     			radius = ran.nextInt(400)+100;
     		}
-    		x = (int) radius * Math.cos(Math.toRadians(list.get(count)));
-    		y = (int) radius * Math.sin(Math.toRadians(list.get(count)));
-    		frame.addNode(v.getName(), x, y);
+    		int x = (int)(radius * Math.cos(Math.toRadians(list.get(count))));
+    		int y = (int)(radius * Math.sin(Math.toRadians(list.get(count))));
+
+    		Main.println("Node " + v.getName() + ": " + x + ", " + y);
+
+    		frame.addNode(v.getName(), x + x_cen, y + y_cen);
+    		count = count + 1;
     	}
 
     	//drwaing edges between related variables
     	for(Variable v : resolvedVariables) {
     		int a = hmap.get(v.getName());
-			Main.println("i am graphing " + v.getName() + " and I found it an hmap index " + a);
+			//Main.println("i am graphing " + v.getName() + " and I found it an hmap index " + a);
     		Variable [] rv = v.getRelationships();
 
     		for (Variable v2 : rv) {
 				String temp = v2.getName();
 				
 				int b = hmap.get(temp);
-    			Main.println("parent var " + v.getName() + " relation with " + v2.getName() + " and I found it an hmap index " + b);
+    			//Main.println("parent var " + v.getName() + " relation with " + v2.getName() + " and I found it an hmap index " + b);
 
     			if (!v.getName().trim().equals(v2.getName().trim())) {
 					frame.addEdge(a, b);
 				}
 			}
     	}
-
-  //   }
+     }
 
 // class testGraphDraw {
     //Here is some example syntax for the GraphDraw class
