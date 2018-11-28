@@ -7,8 +7,8 @@ reasonably nice graphs/trees/diagrams. Feel free to
 improve upon it!
  */
 
-package com.kimpflerze;
 
+// package com.kimpflerze;
 import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -39,8 +39,8 @@ public class GraphDraw extends JFrame {
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	nodes = new ArrayList<Node>();
 	edges = new ArrayList<edge>();
-	width = 30;
-	height = 30;
+	width = 99;
+	height = 100;
     }
 
     class Node {
@@ -120,8 +120,8 @@ public class GraphDraw extends JFrame {
 	 frame.setSize(1000,1000);
 	
 	 frame.setVisible(true);
-    	int x = 0;
-    	int y = 0;
+    	// int x = 0;
+    	// int y = 0;
     	Random ran = new Random();
 		
     	HashMap<String, Integer> hmap = new HashMap<String, Integer>();
@@ -132,9 +132,20 @@ public class GraphDraw extends JFrame {
     	}
 
     	//drawing nodes for all variables
+    	ArrayList<Integer> list = new ArrayList<Integer>();
+    	for (int i = 0; i <360 ; i+10) {
+    		list.add(i);
+    	}
+    	int radius = ran.nextInt(400)+ 100;
+    	int x_cen = 500;
+    	int y_cen = 500;
+    	count = 0;
     	for(Variable v : resolvedVariables) {
-    		x = ran.nextInt(800) + 100;
-    		y = ran.nextInt(800) + 100;
+    		if (count > 35) {
+    			radius = ran.nextInt(400)+100;
+    		}
+    		x = (int) radius * Math.cos(Math.toRadians(list.get(count)));
+    		y = (int) radius * Math.sin(Math.toRadians(list.get(count)));
     		frame.addNode(v.getName(), x, y);
     	}
 
@@ -156,7 +167,7 @@ public class GraphDraw extends JFrame {
 			}
     	}
 
-    }
+  //   }
 
 // class testGraphDraw {
     //Here is some example syntax for the GraphDraw class
