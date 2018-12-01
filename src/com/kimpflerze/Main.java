@@ -1,6 +1,7 @@
 package com.kimpflerze;
 
 import com.sun.corba.se.impl.orbutil.graph.Graph;
+import java.util.*;
 
 public class Main {
 
@@ -26,8 +27,23 @@ public class Main {
         }
     }
 
+    private static List<Variable> combineClasses(List<Variable[]> classResolvedRelationsList) {
+        List<Variable> combinedRelationsList = new ArrayList<Variable>();
+
+        for(Variable[] relationsArray : classResolvedRelationsList) {
+            for(Variable variable : relationsArray) {
+                combinedRelationsList.add(variable);
+            }
+        }
+
+        return combinedRelationsList;
+    }
+
     public static void main(String[] args) {
         String[] filePaths = {"ExampleProgram.txt", "Parser.txt"};
+
+        List<Variable[]> classResolvedRelationsList = new ArrayList<Variable[]>();
+
         for(String path : filePaths) {
             String[] originalLines = Parser.loadFile(path);
 
@@ -69,12 +85,14 @@ public class Main {
                 relationCounter = 0;
             }
 
-            GraphDraw graphDraw = new GraphDraw();
-            graphDraw.DrawVarialbes(extractedVariables);
-
+            classResolvedRelationsList.add(resolvedVariables);
 
         }
 
+        Variable[] combinedClassRelations = Parser.variableListToArray(combineClasses(classResolvedRelationsList));
+
+        GraphDraw graphDraw = new GraphDraw();
+        graphDraw.DrawVarialbes(combinedClassRelations);
 
     }
 }

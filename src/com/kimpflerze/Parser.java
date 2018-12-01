@@ -25,7 +25,7 @@ public class Parser {
         return array;
     }
 
-    private static Variable[] variableListToArray(List<Variable> variables) {
+    public static Variable[] variableListToArray(List<Variable> variables) {
         Variable[] array = new Variable[variables.size()];
         for(int i = 0; i < variables.size(); i ++) {
             array[i] = variables.get(i);
