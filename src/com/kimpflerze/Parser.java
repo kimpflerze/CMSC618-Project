@@ -11,7 +11,7 @@ public class Parser {
 
     private static String[] stringListToArray(List<String> lines) {
         String[] array = new String[lines.size()];
-        for(int i = 0; i < lines.size(); i ++) {
+        for(int i = 0; i < lines.size(); i++) {
             array[i] = lines.get(i);
         }
         return array;
@@ -19,7 +19,7 @@ public class Parser {
 
     private static int[] intListToArray(List<Integer> ints) {
         int[] array = new int[ints.size()];
-        for(int i = 0; i < ints.size(); i ++) {
+        for(int i = 0; i < ints.size(); i++) {
             array[i] = ints.get(i);
         }
         return array;
@@ -27,15 +27,45 @@ public class Parser {
 
     public static Variable[] variableListToArray(List<Variable> variables) {
         Variable[] array = new Variable[variables.size()];
-        for(int i = 0; i < variables.size(); i ++) {
+        for(int i = 0; i < variables.size(); i++) {
             array[i] = variables.get(i);
         }
         return array;
     }
 
+    private enum COMMENT_TYPE {
+        SINGLE,
+        BLOCK,
+        NONE
+    }
+
+    private static COMMENT_TYPE isLineCommented(String line) {
+        //Check to see if the line is commented out
+        String trimmedLine = line;
+        if(trimmedLine.length() > 2) {
+            String trimmedLineSubstring = trimmedLine.substring(0, 2);
+            Main.println("TrimmedLine: " + trimmedLine);
+            Main.println("TrimmedLineSubstring: " + trimmedLineSubstring);
+            if (trimmedLineSubstring.equals("//")) {
+                Main.println("Found a // line!: " + trimmedLine);
+                return COMMENT_TYPE.SINGLE;
+            } else if (trimmedLineSubstring.equals("/*")) {
+                Main.println("Found a /* line!: " + trimmedLine);
+                return COMMENT_TYPE.BLOCK;
+            } else {
+                //Do nothing!
+                Main.println("Found a normal line!: " + trimmedLine);
+                return COMMENT_TYPE.NONE;
+            }
+        }
+        return COMMENT_TYPE.NONE;
+    }
+
     public static String[] loadFile(String path) {
         List<String> lines = null;
         try {
+            Main.println("File Name: " + path);
+
             File file = new File(path);
             Scanner fileReader = new Scanner(file);
 
@@ -44,8 +74,27 @@ public class Parser {
             int lineCounter = 0;
             while (fileReader.hasNextLine()) {
                 ++lineCounter;
-                String tempLine = fileReader.nextLine();
-                if(!tempLine.isEmpty()) {
+                String tempLine = fileReader.nextLine().trim();
+
+                if(tempLine.isEmpty()) {
+                    Main.println("Empty line!" + tempLine);
+                    continue;
+                }
+
+                COMMENT_TYPE commentType = isLineCommented(tempLine);
+                if(commentType == COMMENT_TYPE.SINGLE) {
+                    Main.println("Single Comment Line: " + tempLine);
+                }
+//                if(commentType == COMMENT_TYPE.BLOCK) {
+//                    Main.println("Start Block Comment Line: " + tempLine);
+//                    //Block comment, need to find end of block comment and update the variable i in the for loop above to ignore all commented lines in block comment!
+//                    while(!tempLine.contains("*/")) {
+//                        fileReader.nextLine();
+//                    }
+//                    Main.println("End Block Comment Line: " + tempLine);
+//                }
+                if(commentType == COMMENT_TYPE.NONE) {
+                    Main.println("Regular Line: " + tempLine);
                     lines.add(tempLine);
                 }
             }
@@ -54,6 +103,7 @@ public class Parser {
 
             return stringListToArray(lines);
         } catch (Exception e) {
+            Main.println("Error: " + e.getMessage());
             System.out.println("File not found at: " + path);
         }
         return stringListToArray(lines);
@@ -69,6 +119,34 @@ public class Parser {
         return doesContain;
     }
 
+    public static String[] findClassAndSubClassNames(String[] lines) {
+        List<String> classNamesList = new ArrayList<String>();
+
+        for(String line : lines) {
+            if(line.contains("class")) {
+                String[] whiteSpaceSplit = line.split(" ");
+                for (int i = 0; i < whiteSpaceSplit.length; i++) {
+                    String tempString = whiteSpaceSplit[i].trim();
+                    if (tempString.equals("class")) {
+                        try {
+                            String className = whiteSpaceSplit[i + 1];
+                            if(className.contains("{")) {
+                                int openBracketIndex = className.indexOf("{");
+                                className = className.substring(0, openBracketIndex).trim();
+                            }
+                            Main.println("Found class named " + className);
+                            classNamesList.add(className);
+                        } catch (IndexOutOfBoundsException e) {
+                            System.out.println("Index out of bounds in function findClassAndSubClassNames!");
+                        }
+                    }
+                }
+            }
+        }
+
+        return stringListToArray(classNamesList);
+    }
+
 
     public static String[] findAssignments(String[] lines) {
         List<String> assignmentLines = new ArrayList<String>();
@@ -78,9 +156,11 @@ public class Parser {
             if (contains(lines[i], assignmentIndicators)) {
                 String tempLine = lines[i];
                 String[] falseAssignmentIndicators = {"==", "!=", "for("};
+
                 if (contains(tempLine, falseAssignmentIndicators)) {
                     continue;
                 }
+
                 assignmentLines.add(tempLine.trim());
             }
         }
@@ -116,7 +196,7 @@ public class Parser {
     private static String determineName(String definition) {
         String[] whiteSpaceSplit = definition.split(" ");
 
-        String name = whiteSpaceSplit[whiteSpaceSplit.length-1];
+        String name = whiteSpaceSplit[whiteSpaceSplit.length - 1];
 
         if(name.contains("[")) {
             int openBracketIndex = -1;
@@ -283,6 +363,7 @@ public class Parser {
         for(int lineIndex = 0; lineIndex < assignmentLines.length; lineIndex++) {
             //Split on equals sign!
             String[] assignmentIndicators = {"+=", "-=", "*=", "/=", "%=", "^=", "="};
+
             String[] equalsSignSplitArray = trySplitOn(assignmentLines[lineIndex], assignmentIndicators);
             String definition = equalsSignSplitArray[0];
             try {
@@ -301,11 +382,10 @@ public class Parser {
                     for(int i = 0; i < extractedVariables.size(); i++) {
                     //for (Variable var : extractedVariables ) {
                         if (extractedVariables.get(i).name.equals(newVariable.name)) {
-                            Main.println("hello world");
                            Variable temp = extractedVariables.get(i);
                            temp.addValue(value);
-                            extractedVariables.set(i, temp);
-                            Main.println("extracted variable " + temp.name + " new value "+ temp.value.toString());
+                           extractedVariables.set(i, temp);
+                           Main.println("extracted variable " + temp.name + ", new value "+ temp.value.toString());
                         }
                     }
                 }

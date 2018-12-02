@@ -41,21 +41,13 @@ public class ExampleProgram {
         String e = c + d;
 
         e = "Is there an echo in here?";
-    }
 
-    private static double add(double a, double b) {
-        return a + b;
-        //This is a very hard test case!
-        // The (unclear (lack of obvious flag)) mixing of generic variables that
-        // are already used makes this very difficult!
-        //
-        //Solution:
-        //
-        //  Just consider any variable that passes into a function like this as tainted!
-        //  Does pose the question, should we only consider a method as a "tainted method"
-        //  or method that creates tainted output by default? Or should we only consider it a "tainted method"/taint producing method
-        //  if the tainted variable is ever passed to that function?
-        //  This would add a lot of complexity to our parser. We would need to find assignments and be able to handle parsing
-        //  method calls/functions called on objects (which would be even MORE difficult...) *Grumble* Difficult...
+        //int singleLineCommentTest = a_copy;
+
+        /*
+        int blockCommentTest = taintedVariable;
+        int blockCommentTest2 = c;
+        */
+
     }
 }

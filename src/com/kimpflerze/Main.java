@@ -52,6 +52,12 @@ public class Main {
             printStringArray(originalLines);
             System.out.println(":End of Original File\n");
 
+            String[] classNames = Parser.findClassAndSubClassNames(originalLines);
+            String currentClassName = classNames[0];
+            System.out.println("\nClass Names:");
+            printStringArray(classNames);
+            System.out.println(":End of Class Names\n");
+
             String[] assignmentLines = Parser.findAssignments(originalLines);
 
             //Print out the lines with assignments.
@@ -61,9 +67,15 @@ public class Main {
 
             Variable[] extractedVariables = Parser.extractVariables(assignmentLines);
             println("Extracted Variables' Names:");
+            int variableCounter = 0;
             for(Variable var : extractedVariables) {
                 println("   " + var.name);
-                println("extracted variable " + var.value.toString());
+                println("extracted variable value " + var.value.toString());
+
+                //Add class name to every variable extracted
+                extractedVariables[variableCounter].className = currentClassName;
+                variableCounter++;
+                println("extracted variable class name " + var.className);
             }
 
 
@@ -71,7 +83,7 @@ public class Main {
             Variable[] resolvedVariables = Parser.resolveRelationships(extractedVariables);
             println("Resolved Variables' Names & Relationships:");
             for(Variable var : resolvedVariables) {
-                println("   " + var.name);
+                println("extracted variable name " + var.name);
             }
 
             int varCounter = 0;

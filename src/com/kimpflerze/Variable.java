@@ -5,6 +5,7 @@ import java.io.*;
 
 public class Variable {
 
+    String className;
     String type;
     String name;
     List<String> value = new ArrayList<String>();
@@ -42,9 +43,13 @@ public class Variable {
     public void setValue(List<String> value) {
         this.value = value;
     }
+
+    public void setClassName(String className) { this.className = className; }
+
     public void addValue(String value) {
         this.value.add(value);
     }
+
     public void setRelationships(Variable[] relationships) {
         this.relationships = relationships;
     }
@@ -60,6 +65,8 @@ public class Variable {
     public List<String> getValue() {
         return this.value;
     }
+
+    public String getClassName() { return this.className; }
 
     public Variable[] getRelationships() {
         return this.relationships;

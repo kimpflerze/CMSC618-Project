@@ -112,11 +112,15 @@ public class GraphDraw extends JFrame {
     public void DrawVarialbes(Variable[] resolvedVariables) {
    	GraphDraw frame = new GraphDraw("Relationship Graph");
 
-   	final int FRAME_WIDTH = 1000;
-   	final int FRAME_HEIGHT = 1000;
+	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	final int FRAME_WIDTH = (int) screenSize.getWidth();
+	final int FRAME_HEIGHT = (int) screenSize.getHeight();
+
+//   	final int FRAME_WIDTH = 1000;
+//   	final int FRAME_HEIGHT = 1000;
    	//final int NUMBER_NODES_PER_RING = 20;
 		final int NUMBER_NODES_PER_RING = resolvedVariables.length / 2;
-	 frame.setSize(1000,1000);
+	 frame.setSize(FRAME_WIDTH,FRAME_HEIGHT);
 	
 	 frame.setVisible(true);
     	// int x = 0;
@@ -135,15 +139,20 @@ public class GraphDraw extends JFrame {
     	for (int i = 0; i <360 ; i=i+(360/NUMBER_NODES_PER_RING)) {
     		list.add(i);
     	}
-    	int radius = ran.nextInt(200)+ 200;
+    	//int radius = ran.nextInt(200)+ 200;
+		int radiusWidth = (int)(FRAME_WIDTH * 0.2);
+		int radiusHeight = (int)(FRAME_HEIGHT * 0.25);
+		//int radius = ran.nextInt(radiusHeight)+ radiusHeight;
+		int radius = FRAME_HEIGHT - (int)(2.3 * radiusHeight);
     	Main.print("Radius: " + radius);
-    	int x_cen = FRAME_WIDTH/2;
-    	int y_cen = FRAME_HEIGHT/2;
+    	int x_cen = FRAME_WIDTH / 2;
+    	int y_cen = FRAME_HEIGHT / 2;
     	Main.println("Centers: " + x_cen + ", " + y_cen);
     	count = 0;
     	for(Variable v : resolvedVariables) {
     		if (count >= NUMBER_NODES_PER_RING) {
-    			radius = ran.nextInt(400)+100;
+				//radius = rand.nextInt(400) + 100;
+    			radius = radiusHeight - (int)(radiusHeight * 0.1);
     			count = 0;
     		}
     		int x = (int)(radius * Math.cos(Math.toRadians(list.get(count))));
@@ -151,7 +160,7 @@ public class GraphDraw extends JFrame {
 
     		Main.println("Node " + v.getName() + ": " + x + ", " + y);
 
-    		frame.addNode(v.getName(), x + x_cen, y + y_cen);
+    		frame.addNode(v.getClassName() + "." + v.getName(), x + x_cen, y + y_cen);
     		count = count + 1;
     	}
 
