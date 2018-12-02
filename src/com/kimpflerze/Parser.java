@@ -371,8 +371,15 @@ public class Parser {
 
                 //Split on spaces!
                 //Handle the definition side
-                String type = determineType(definition);
-                String name = determineName(definition);
+                String type = determineType(definition).trim();
+                String name = determineName(definition).trim();
+
+                //Slimy patch of some hard to remove bugs... Forgive me!
+                if(name.contains("{") || name.indexOf('"') > -1) {
+                    Main.println(name.trim());
+                    continue;
+                }
+                //End of slimy patch
 
                 Variable newVariable = new Variable(type, name, value);
 
