@@ -40,7 +40,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        String[] filePaths = {"ExampleProgram.txt", "Parser.txt"};
+        String[] filePaths = {"ExampleProgram.txt"};
 
         List<Variable[]> classResolvedRelationsList = new ArrayList<Variable[]>();
 
@@ -98,6 +98,15 @@ public class Main {
             }
 
             classResolvedRelationsList.add(resolvedVariables);
+            println("going to taint variables ");
+            Parser.taintSpread(resolvedVariables,"c" , 1);
+            println("checking taint");
+            for(int m = 0; m < resolvedVariables.length; m++) {
+            	if(resolvedVariables[m].tainted == true) {
+            		println(resolvedVariables[m].name + " is tainted.");
+            	}
+            }
+            println("end checking");
 
         }
 

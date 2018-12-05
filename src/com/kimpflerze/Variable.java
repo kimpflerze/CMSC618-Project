@@ -10,21 +10,25 @@ public class Variable {
     String name;
     List<String> value = new ArrayList<String>();
     Variable[] relationships;
+    boolean tainted;
 
     public Variable(String type, String name) {
         this.type = type;
         this.name = name;
+        this.tainted = false;
     }
 
     public Variable(String type, String name, List<String> value) {
         this.type = type;
         this.name = name;
         this.value = value;
+        this.tainted = false;
     }
     public Variable(String type, String name, String value) {
         this.type = type;
         this.name = name;
         this.value.add(value);
+        this.tainted = false;
     }
 
 
@@ -42,6 +46,10 @@ public class Variable {
 
     public void setValue(List<String> value) {
         this.value = value;
+    }
+    
+    public void setTainted(boolean value) {
+        this.tainted = value;
     }
 
     public void setClassName(String className) { this.className = className; }

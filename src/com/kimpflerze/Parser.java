@@ -36,12 +36,14 @@ public class Parser {
     private enum COMMENT_TYPE {
         SINGLE,
         BLOCK,
+        BLOCKEND,
         NONE
     }
 
     private static COMMENT_TYPE isLineCommented(String line) {
         //Check to see if the line is commented out
         String trimmedLine = line;
+        int flag = 0;
         if(trimmedLine.length() > 2) {
             String trimmedLineSubstring = trimmedLine.substring(0, 2);
             Main.println("TrimmedLine: " + trimmedLine);
@@ -52,6 +54,9 @@ public class Parser {
             } else if (trimmedLineSubstring.equals("/*")) {
                 Main.println("Found a /* line!: " + trimmedLine);
                 return COMMENT_TYPE.BLOCK;
+            } else if (trimmedLineSubstring.equals("*/")) {
+                Main.println("Found a */ line!: " + trimmedLine);
+                return COMMENT_TYPE.BLOCKEND; 
             } else {
                 //Do nothing!
                 Main.println("Found a normal line!: " + trimmedLine);
@@ -356,7 +361,41 @@ public class Parser {
         }
         return false;
     }
-
+    // function to find the taint a variable;
+    
+    public static void taintVariable(Variable [] allVariables, String vname) {
+    	for(int i = 0; i < allVariables.length; i++) {
+    		if (allVariables[i].name.equals(vname)) {
+    			allVariables[i].setTainted(true);
+    			Main.println("tainting variable: " + vname);
+    		}
+    	}
+    }
+    
+    // function to find taint spread
+    public static void taintSpread(Variable [] allVariables, String vname, int hop) {
+    	if(hop == 0) {
+    		taintVariable(allVariables,vname);
+    		return;
+    	} else if(hop > 0) {
+    		taintVariable(allVariables,vname);
+    		Main.println("hop no: " + Integer.toString(hop));
+    		for(int i = 0; i < allVariables.length; i++) {
+    			for(int j = 0; j < allVariables[i].relationships.length; j++) {
+    				if(allVariables[i].relationships[j].name.equals(vname)) {
+    					taintSpread(allVariables,allVariables[i].getName(), hop-1);
+    				}
+    			}
+    			
+    		}
+    	} else {
+    		return;
+    	}
+    	
+    }
+    
+    
+    
     public static Variable[] extractVariables(String[] assignmentLines) {
         List<Variable> extractedVariables = new ArrayList<Variable>();
 
