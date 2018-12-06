@@ -1,6 +1,7 @@
 package com.kimpflerze;
 
 import java.util.*;
+import java.util.Arrays;
 import java.io.*;
 import java.util.regex.PatternSyntaxException;
 
@@ -310,10 +311,16 @@ public class Parser {
         int indexOfnew = Arrays.asList(whiteSpaceSplit).indexOf("new");
 
         Main.println("Test2");
-
+        // will resume the work on this
         if (indexOfnew > -1 && value.indexOf('(') != -1 && value.indexOf(')') != -1) {
             Main.println("its a constructor");
             String[] withoutnew = Arrays.copyOfRange(whiteSpaceSplit, 1, whiteSpaceSplit.length);
+            String [] temp = determineAttributes(findbrackets(Arrays.toString(withoutnew)));
+            String [] toreturn;
+            for (String s : temp) {
+            	int [] tempint = determineOperatorIndicies(s);
+            	String[] both = (String[])ArrayUtils.addAll(toreturn, splitStringAtIndicies(tempint, s));
+            }
             return(determineAttributes(findbrackets(Arrays.toString(withoutnew))));
         } else if (value.indexOf('(') != -1 && value.indexOf(')') != -1 && value.indexOf(',') != -1) {
             Main.println("its a function");
