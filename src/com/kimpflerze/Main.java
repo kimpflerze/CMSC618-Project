@@ -1,6 +1,5 @@
 package com.kimpflerze;
 
-import com.sun.corba.se.impl.orbutil.graph.Graph;
 import java.util.*;
 
 public class Main {
@@ -40,7 +39,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        String[] filePaths = {"ExampleProgram.txt"};
+        String[] filePaths = {"ExampleProgram.txt", "Parser.txt"};
 
         List<Variable[]> classResolvedRelationsList = new ArrayList<Variable[]>();
 
@@ -113,7 +112,8 @@ public class Main {
         Variable[] combinedClassRelations = Parser.variableListToArray(combineClasses(classResolvedRelationsList));
 
         GraphDraw graphDraw = new GraphDraw();
-        graphDraw.DrawVarialbes(combinedClassRelations);
+        graphDraw.DrawVariables(combinedClassRelations);
+        graphDraw.DrawTaintSpreadGraph(combinedClassRelations);
 
     }
 }
