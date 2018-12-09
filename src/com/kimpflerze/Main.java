@@ -52,8 +52,19 @@ public class Main {
             printStringArray(originalLines);
             System.out.println(":End of Original File\n");
 
+            int dotIndex = -1;
+            for(String tempString : filePaths) {
+                for(int i = 0; i < tempString.length(); i++) {
+                    if(tempString.charAt(i) == '.') {
+                        dotIndex = i;
+                    }
+                }
+            }
+            String classNameFromFileName = path.substring(0, dotIndex);
+
             String[] classNames = Parser.findClassAndSubClassNames(originalLines);
-            String currentClassName = classNames[0];
+            //String currentClassName = classNames[0];
+            String currentClassName = classNameFromFileName;
             System.out.println("\nClass Names:");
             printStringArray(classNames);
             System.out.println(":End of Class Names\n");
@@ -99,12 +110,12 @@ public class Main {
 
             classResolvedRelationsList.add(resolvedVariables);
             println("going to taint variables ");
-            Parser.taintSpread(resolvedVariables,"c" , 0);
+            Parser.taintSpread(resolvedVariables,"c" , 1);
             println("checking taint");
             for(int m = 0; m < resolvedVariables.length; m++) {
-            	if(resolvedVariables[m].tainted == true) {
-            		println(resolvedVariables[m].name + " is tainted.");
-            	}
+                if(resolvedVariables[m].tainted == true) {
+                    println(resolvedVariables[m].name + " is tainted.");
+                }
             }
             println("end checking");
 
@@ -113,7 +124,7 @@ public class Main {
         Variable[] combinedClassRelations = Parser.variableListToArray(combineClasses(classResolvedRelationsList));
 
         GraphDraw graphDraw = new GraphDraw();
-        graphDraw.DrawVarialbes(combinedClassRelations);
+        graphDraw.DrawVariables(combinedClassRelations);
 
     }
 }

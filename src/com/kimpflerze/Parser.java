@@ -43,26 +43,28 @@ public class Parser {
 
     private static COMMENT_TYPE isLineCommented(String line) {
         //Check to see if the line is commented out
-        String trimmedLine = line;
-        int flag = 0;
-        if(trimmedLine.length() > 2) {
+        String trimmedLine = line.trim();
+
+        if(trimmedLine.length() >= 2) {
             String trimmedLineSubstring = trimmedLine.substring(0, 2);
             Main.println("TrimmedLine: " + trimmedLine);
             Main.println("TrimmedLineSubstring: " + trimmedLineSubstring);
             if (trimmedLineSubstring.equals("//")) {
                 Main.println("Found a // line!: " + trimmedLine);
                 return COMMENT_TYPE.SINGLE;
-            } else if (trimmedLineSubstring.equals("/*")) {
+            } else if (trimmedLineSubstring.contains("/*")) {
                 Main.println("Found a /* line!: " + trimmedLine);
                 return COMMENT_TYPE.BLOCK;
-            } else if (trimmedLineSubstring.equals("*/")) {
+            } else if (trimmedLineSubstring.contains("*/")) {
                 Main.println("Found a */ line!: " + trimmedLine);
-                return COMMENT_TYPE.BLOCKEND; 
+                return COMMENT_TYPE.BLOCKEND;
             } else {
                 //Do nothing!
                 Main.println("Found a normal line!: " + trimmedLine);
                 return COMMENT_TYPE.NONE;
             }
+        } else {
+            Main.println(" string is huge " + trimmedLine);
         }
         return COMMENT_TYPE.NONE;
     }
@@ -78,6 +80,7 @@ public class Parser {
             lines = new ArrayList<String>();
 
             int lineCounter = 0;
+            int flag = 0;
             while (fileReader.hasNextLine()) {
                 ++lineCounter;
                 String tempLine = fileReader.nextLine().trim();
@@ -90,16 +93,20 @@ public class Parser {
                 COMMENT_TYPE commentType = isLineCommented(tempLine);
                 if(commentType == COMMENT_TYPE.SINGLE) {
                     Main.println("Single Comment Line: " + tempLine);
+                    continue;
                 }
-//                if(commentType == COMMENT_TYPE.BLOCK) {
-//                    Main.println("Start Block Comment Line: " + tempLine);
-//                    //Block comment, need to find end of block comment and update the variable i in the for loop above to ignore all commented lines in block comment!
-//                    while(!tempLine.contains("*/")) {
-//                        fileReader.nextLine();
-//                    }
-//                    Main.println("End Block Comment Line: " + tempLine);
-//                }
-                if(commentType == COMMENT_TYPE.NONE) {
+                if(commentType == COMMENT_TYPE.BLOCK) {
+                    Main.println("Start Block Comment Line: " + tempLine);
+                    flag = 1;
+                    continue;
+                }
+                if(commentType == COMMENT_TYPE.BLOCKEND) {
+                    Main.println("End Block Comment Line: " + tempLine);
+                    flag = 0;
+                    continue;
+                }
+
+                if(commentType == COMMENT_TYPE.NONE && flag == 0) {
                     Main.println("Regular Line: " + tempLine);
                     lines.add(tempLine);
                 }
@@ -186,7 +193,7 @@ public class Parser {
 
         //This list of datatypes should still be expanded!
         String[] dataTypes = {"boolean", "byte", "char", "short", "int", "long", "float", "double",
-        "String", "Integer", "List", "ArrayList"};
+                "String", "Integer", "List", "ArrayList"};
 
         for(String type : dataTypes) {
             for(String string : whiteSpaceSplit) {
@@ -316,27 +323,39 @@ public class Parser {
             Main.println("its a constructor");
             String[] withoutnew = Arrays.copyOfRange(whiteSpaceSplit, 1, whiteSpaceSplit.length);
             String [] temp = determineAttributes(findbrackets(Arrays.toString(withoutnew)));
-            String [] toreturn;
+            List<String> toreturn = new ArrayList<String>();
             for (String s : temp) {
-            	int [] tempint = determineOperatorIndicies(s);
-            	String[] both = (String[])ArrayUtils.addAll(toreturn, splitStringAtIndicies(tempint, s));
+                int [] tempint = determineOperatorIndicies(s);
+                for(String p : splitStringAtIndicies(tempint, s)) {
+                    toreturn.add(p.trim());
+                }
             }
-            return(determineAttributes(findbrackets(Arrays.toString(withoutnew))));
+            return stringListToArray(toreturn);
+//            return(determineAttributes(findbrackets(Arrays.toString(withoutnew))));
         } else if (value.indexOf('(') != -1 && value.indexOf(')') != -1 && value.indexOf(',') != -1) {
             Main.println("its a function");
             Main.println(value);
-            return(determineAttributes(findbrackets(value)));
+            String [] temp = determineAttributes(findbrackets(value));
+            List<String> toreturn = new ArrayList<String>();
+            for (String s : temp) {
+                int [] tempint = determineOperatorIndicies(s);
+                for(String p : splitStringAtIndicies(tempint, s)) {
+                    toreturn.add(p.trim());
+                }
+            }
+            return stringListToArray(toreturn);
+
         } else {
 
-        int[] operatorIndicies = {};
+            int[] operatorIndicies = {};
 
-        operatorIndicies = determineOperatorIndicies(tempValue);
-        Main.println("TempValue: " + tempValue);
-        Main.println("OperatorIndicies: s=" + operatorIndicies.length);
-        Main.printIntArray(operatorIndicies);
+            operatorIndicies = determineOperatorIndicies(tempValue);
+            Main.println("TempValue: " + tempValue);
+            Main.println("OperatorIndicies: s=" + operatorIndicies.length);
+            Main.printIntArray(operatorIndicies);
 
 
-        return splitStringAtIndicies(operatorIndicies, value);
+            return splitStringAtIndicies(operatorIndicies, value);
         }
     }
 
@@ -369,40 +388,40 @@ public class Parser {
         return false;
     }
     // function to find the taint a variable;
-    
+
     public static void taintVariable(Variable [] allVariables, String vname) {
-    	for(int i = 0; i < allVariables.length; i++) {
-    		if (allVariables[i].name.equals(vname)) {
-    			allVariables[i].setTainted(true);
-    			Main.println("tainting variable: " + vname);
-    		}
-    	}
+        for(int i = 0; i < allVariables.length; i++) {
+            if (allVariables[i].name.equals(vname)) {
+                allVariables[i].setTainted(true);
+                Main.println("tainting variable: " + vname);
+            }
+        }
     }
-    
+
     // function to find taint spread
     public static void taintSpread(Variable [] allVariables, String vname, int hop) {
-    	if(hop == 0) {
-    		taintVariable(allVariables,vname);
-    		return;
-    	} else if(hop > 0) {
-    		taintVariable(allVariables,vname);
-    		Main.println("hop no: " + Integer.toString(hop));
-    		for(int i = 0; i < allVariables.length; i++) {
-    			for(int j = 0; j < allVariables[i].relationships.length; j++) {
-    				if(allVariables[i].relationships[j].name.equals(vname)) {
-    					taintSpread(allVariables,allVariables[i].getName(), hop-1);
-    				}
-    			}
-    			
-    		}
-    	} else {
-    		return;
-    	}
-    	
+        if(hop == 0) {
+            taintVariable(allVariables,vname);
+            return;
+        } else if(hop > 0) {
+            taintVariable(allVariables,vname);
+            Main.println("hop no: " + Integer.toString(hop));
+            for(int i = 0; i < allVariables.length; i++) {
+                for(int j = 0; j < allVariables[i].relationships.length; j++) {
+                    if(allVariables[i].relationships[j].name.equals(vname)) {
+                        taintSpread(allVariables,allVariables[i].getName(), hop-1);
+                    }
+                }
+
+            }
+        } else {
+            return;
+        }
+
     }
-    
-    
-    
+
+
+
     public static Variable[] extractVariables(String[] assignmentLines) {
         List<Variable> extractedVariables = new ArrayList<Variable>();
 
@@ -433,12 +452,12 @@ public class Parser {
                     extractedVariables.add(newVariable);
                 } else {
                     for(int i = 0; i < extractedVariables.size(); i++) {
-                    //for (Variable var : extractedVariables ) {
+                        //for (Variable var : extractedVariables ) {
                         if (extractedVariables.get(i).name.equals(newVariable.name)) {
-                           Variable temp = extractedVariables.get(i);
-                           temp.addValue(value);
-                           extractedVariables.set(i, temp);
-                           Main.println("extracted variable " + temp.name + ", new value "+ temp.value.toString());
+                            Variable temp = extractedVariables.get(i);
+                            temp.addValue(value);
+                            extractedVariables.set(i, temp);
+                            Main.println("extracted variable " + temp.name + ", new value "+ temp.value.toString());
                         }
                     }
                 }

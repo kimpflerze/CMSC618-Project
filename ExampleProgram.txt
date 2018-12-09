@@ -1,6 +1,9 @@
 package com.kimpflerze;
 
 public class ExampleProgram {
+    int new1 = 0;
+    double newTwo  = 2.0;
+    double newThree = 1.0;
     class dummy{
         int x;
         public dummy(int a) {
@@ -16,8 +19,8 @@ public class ExampleProgram {
         int a = 0;
 
         double b = 1.0;
-        dummy test = new dummy(a);
-        double func = dummyfunc(a,b);
+         dummy test = new dummy(a+a);
+        double func = dummyfunc(a,b + a);
 
         String c = "";
 
@@ -28,11 +31,14 @@ public class ExampleProgram {
         double[] mixedBagArray = new double[10];
 
         double sum = 0.0;
+        new1 = c;
 
         for(int i = 0; i < mixedBagArray.length; i++) {
             mixedBagArray[i] = Math.random();
             sum += add(sum, mixedBagArray[i]);
         }
+
+        newThree = add(newTwo, newThree);
 
         c += "Cats are cool, dogs are spiffy, aight.";
 
@@ -41,13 +47,16 @@ public class ExampleProgram {
         String e = c + d;
 
         e = "Is there an echo in here?";
-
-        //int singleLineCommentTest = a_copy;
-
-        /*
-        int blockCommentTest = taintedVariable;
-        int blockCommentTest2 = c;
-        */
-
     }
+
+    /*
+      int yo = 3;
+      int yoyo = yo+yo;
+     */
+
+    private static double add(double a, double b) {
+        return a + b;
+    }
+
+
 }
