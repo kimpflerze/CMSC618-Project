@@ -92,12 +92,12 @@ public class Main {
             int variableCounter = 0;
             for(Variable var : extractedVariables) {
                 println("   " + var.name);
-                println("extracted variable value " + var.value.toString());
+                //println("extracted variable value " + var.value.toString());
 
                 //Add class name to every variable extracted
                 extractedVariables[variableCounter].className = currentClassName;
                 variableCounter++;
-                println("extracted variable class name " + var.className);
+                //println("extracted variable class name " + var.className);
             }
 
 
@@ -105,7 +105,7 @@ public class Main {
             Variable[] resolvedVariables = Parser.resolveRelationships(extractedVariables);
             println("Resolved Variables' Names & Relationships:");
             for(Variable var : resolvedVariables) {
-                println("extracted variable name " + var.name);
+                println(" " + var.name);
             }
 
             int varCounter = 0;
@@ -120,7 +120,6 @@ public class Main {
             }
 
             classResolvedRelationsList.add(resolvedVariables);
-            println("going to taint variables ");
 
             //Display names of variables and prompt for which one is tainted...
             println("\n\n");
@@ -128,27 +127,38 @@ public class Main {
             for(Variable variable : resolvedVariables) {
                 println("\t" + variable.name);
             }
-            println("\nWhich Variable is Sensitive?: ");
+            println("\nWhich Variable is Sensitive? (' ' for none!): ");
             String sensitiveVariableName = scanner.nextLine().trim();
 
 
             Parser.taintSpread(resolvedVariables, sensitiveVariableName , 1);
-            println("checking taint");
             for(int m = 0; m < resolvedVariables.length; m++) {
                 if(resolvedVariables[m].tainted == true) {
                     println(resolvedVariables[m].name + " is tainted.");
                 }
             }
-            println("end checking");
-
         }
 
         Variable[] combinedClassRelations = Parser.variableListToArray(combineClasses(classResolvedRelationsList));
 
-        GraphDraw graphDraw = new GraphDraw();
-        //graphDraw.DrawVariables(combinedClassRelations);
+        println("\n\nDone with parsing, please select output format: ");
+        println("(1) Graph");
+        println("(2) Gephi GEXF File");
+        println("(0) Exit, no output");
+        Integer selection = scanner.nextInt();
+        if(selection == 1) {
+            GraphDraw graphDraw = new GraphDraw();
+            graphDraw.DrawVariables(combinedClassRelations);
+        }
+        else if(selection == 2) {
+            GenerateGephiFile gephiGenerator = new GenerateGephiFile();
+            gephiGenerator.generateGexfFile(combinedClassRelations);
+        }
+        else {
+            println("No output!");
+            System.exit(0);
+        }
 
-        GenerateGephiFile gephiGenerator = new GenerateGephiFile();
-        gephiGenerator.generateGexfFile(combinedClassRelations);
+        println("\n\nAnalysis and output complete!\n");
     }
 }

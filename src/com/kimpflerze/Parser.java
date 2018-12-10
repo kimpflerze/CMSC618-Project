@@ -77,24 +77,24 @@ public class Parser {
 
         if(trimmedLine.length() >= 2) {
             String trimmedLineSubstring = trimmedLine.substring(0, 2);
-            Main.println("TrimmedLine: " + trimmedLine);
-            Main.println("TrimmedLineSubstring: " + trimmedLineSubstring);
+            //Main.println("TrimmedLine: " + trimmedLine);
+            //Main.println("TrimmedLineSubstring: " + trimmedLineSubstring);
             if (trimmedLineSubstring.equals("//")) {
-                Main.println("Found a // line!: " + trimmedLine);
+                Main.println("Comment: " + trimmedLine);
                 return COMMENT_TYPE.SINGLE;
             } else if (trimmedLineSubstring.contains("/*")) {
-                Main.println("Found a /* line!: " + trimmedLine);
+                Main.println("Start Block: " + trimmedLine);
                 return COMMENT_TYPE.BLOCK;
             } else if (trimmedLineSubstring.contains("*/")) {
-                Main.println("Found a */ line!: " + trimmedLine);
+                Main.println("End Block: " + trimmedLine);
                 return COMMENT_TYPE.BLOCKEND;
             } else {
                 //Do nothing!
-                Main.println("Found a normal line!: " + trimmedLine);
+                //Main.println(trimmedLine);
                 return COMMENT_TYPE.NONE;
             }
         } else {
-            Main.println(" string is huge " + trimmedLine);
+            //Main.println(" string is huge " + trimmedLine);
         }
         return COMMENT_TYPE.NONE;
     }
@@ -116,28 +116,28 @@ public class Parser {
                 String tempLine = fileReader.nextLine().trim();
 
                 if(tempLine.isEmpty()) {
-                    Main.println("Empty line!" + tempLine);
+                    //Main.println("Empty line!" + tempLine);
                     continue;
                 }
 
                 COMMENT_TYPE commentType = isLineCommented(tempLine);
                 if(commentType == COMMENT_TYPE.SINGLE) {
-                    Main.println("Single Comment Line: " + tempLine);
+                    //Main.println("Single Comment Line: " + tempLine);
                     continue;
                 }
                 if(commentType == COMMENT_TYPE.BLOCK) {
-                    Main.println("Start Block Comment Line: " + tempLine);
+                    //Main.println("Start Block Comment Line: " + tempLine);
                     flag = 1;
                     continue;
                 }
                 if(commentType == COMMENT_TYPE.BLOCKEND) {
-                    Main.println("End Block Comment Line: " + tempLine);
+                    //Main.println("End Block Comment Line: " + tempLine);
                     flag = 0;
                     continue;
                 }
 
                 if(commentType == COMMENT_TYPE.NONE && flag == 0) {
-                    Main.println("Regular Line: " + tempLine);
+                    //Main.println("Regular Line: " + tempLine);
                     lines.add(tempLine);
                 }
             }
@@ -282,8 +282,8 @@ public class Parser {
         char[] operators = {'+', '-', '*', '/', '%'};
 
         List<Integer> indexList = new ArrayList<Integer>();
-        Main.println("Current String: " + string);
-        Main.println("indexList Size at Start: " + indexList.size());
+        //Main.println("Current String: " + string);
+        //Main.println("indexList Size at Start: " + indexList.size());
         for (char oc : operators) {
             for(int i = 0; i < string.length(); i++) {
                 if(string.charAt(i) == oc) {
@@ -293,7 +293,7 @@ public class Parser {
             return intListToArray(indexList);
         }
 
-        Main.println("indexList Size at End: " + indexList.size() + "\n");
+        //Main.println("indexList Size at End: " + indexList.size() + "\n");
 
         //Convert list to array
         return intListToArray(indexList);
@@ -306,9 +306,9 @@ public class Parser {
         int[] operatorIndicies = {};
 
         operatorIndicies = determineOperatorIndicies(tempValue);
-        Main.println("TempValue: " + tempValue);
-        Main.println("OperatorIndicies: s=" + operatorIndicies.length);
-        Main.printIntArray(operatorIndicies);
+        //Main.println("TempValue: " + tempValue);
+        //Main.println("OperatorIndicies: s=" + operatorIndicies.length);
+        //Main.printIntArray(operatorIndicies);
 
         return splitStringAtIndicies(operatorIndicies, value);
     }
@@ -321,8 +321,8 @@ public class Parser {
             openBracketIndex = value.indexOf("[");
             bracklessValue = value.substring(0, openBracketIndex);
         }
-        Main.println("Test3");
-        Main.println("Test 3 Value: " + value);
+        //Main.println("Test3");
+        //Main.println("Test 3 Value: " + value);
         String[] commasplit = bracklessValue.split(",");
 
         for(int i = 0; i < commasplit.length; i++) {
@@ -333,8 +333,8 @@ public class Parser {
     }
 
     private static String findbrackets (String value) {
-        Main.println("Test1");
-        Main.println("Test 1 Value: " + value);
+        //Main.println("Test1");
+        //Main.println("Test 1 Value: " + value);
         return (value.substring(value.indexOf("(") + 1, value.indexOf(")")));
     }
     private static String[] removeduplicate(String [] arr) {
@@ -357,17 +357,17 @@ public class Parser {
     }
     private static String[] determineRelationships1(String value) {
         //First, split the value on white space
-        Main.println("Searching relationships for    " + value);
+        //Main.println("Searching relationships for    " + value);
         String[] whiteSpaceSplit = value.split(" ");
         String tempValue = value;
 
 
         int indexOfnew = Arrays.asList(whiteSpaceSplit).indexOf("new");
 
-        Main.println("Test2");
+        //Main.println("Test2");
         // will resume the work on this
         if (indexOfnew > -1 && value.indexOf('(') != -1 && value.indexOf(')') != -1) {
-            Main.println("its a constructor");
+            //Main.println("its a constructor");
             String[] withoutnew = Arrays.copyOfRange(whiteSpaceSplit, 1, whiteSpaceSplit.length);
             String [] temp = determineAttributes(findbrackets(Arrays.toString(withoutnew)));
             List<String> toreturn = new ArrayList<String>();
@@ -380,7 +380,7 @@ public class Parser {
             return removeduplicate(stringListToArray(toreturn));
 //            return(determineAttributes(findbrackets(Arrays.toString(withoutnew))));
         } else if (value.indexOf('(') != -1 && value.indexOf(')') != -1 && value.indexOf(',') != -1) {
-            Main.println("its a function");
+            //Main.println("its a function");
             Main.println(value);
             String [] temp = determineAttributes(findbrackets(value));
             List<String> toreturn = new ArrayList<String>();
@@ -397,9 +397,9 @@ public class Parser {
             int[] operatorIndicies = {};
 
             operatorIndicies = determineOperatorIndicies(tempValue);
-            Main.println("TempValue: " + tempValue);
-            Main.println("OperatorIndicies: s=" + operatorIndicies.length);
-            Main.printIntArray(operatorIndicies);
+            //Main.println("TempValue: " + tempValue);
+            //Main.println("OperatorIndicies: s=" + operatorIndicies.length);
+            //Main.printIntArray(operatorIndicies);
 
 
             return splitStringAtIndicies(operatorIndicies, value);
@@ -440,7 +440,7 @@ public class Parser {
         for(int i = 0; i < allVariables.length; i++) {
             if (allVariables[i].name.equals(vname)) {
                 allVariables[i].setTainted(true);
-                Main.println("tainting variable: " + vname);
+                //Main.println("tainting variable: " + vname);
             }
         }
     }
@@ -452,7 +452,7 @@ public class Parser {
             return;
         } else if(hop > 0) {
             taintVariable(allVariables,vname);
-            Main.println("hop no: " + Integer.toString(hop));
+            //Main.println("hop no: " + Integer.toString(hop));
             for(int i = 0; i < allVariables.length; i++) {
                 for(int j = 0; j < allVariables[i].relationships.length; j++) {
                     if(allVariables[i].relationships[j].name.equals(vname)) {
@@ -488,7 +488,7 @@ public class Parser {
 
                 //Slimy patch of some hard to remove bugs... Forgive me!
                 if(name.contains("{") || name.indexOf('"') > -1) {
-                    Main.println(name.trim());
+                    //Main.println(name.trim());
                     continue;
                 }
                 //End of slimy patch
@@ -504,7 +504,7 @@ public class Parser {
                             Variable temp = extractedVariables.get(i);
                             temp.addValue(value);
                             extractedVariables.set(i, temp);
-                            Main.println("extracted variable " + temp.name + ", new value "+ temp.value.toString());
+                            //Main.println("extracted variable " + temp.name + ", new value "+ temp.value.toString());
                         }
                     }
                 }
@@ -521,13 +521,13 @@ public class Parser {
 
     public static Variable[] extractRelationships(Variable variable) {
         List<Variable> extractedVariables = new ArrayList<Variable>();
-        Main.println("in extract relationships with " + variable.name + " looking for  " + variable.value);
-        Main.println("Length of variable's Value list: " + variable.value.size());
+        //Main.println("in extract relationships with " + variable.name + " looking for  " + variable.value);
+        //Main.println("Length of variable's Value list: " + variable.value.size());
         for(int i = 0; i < variable.value.size(); i++) {
             String[] determinedRelationships = determineRelationships1(variable.value.get(i));
 
-            Main.println("resolveRelationships - determinedRelationships: ");
-            Main.printStringArray(determinedRelationships);
+            //Main.println("resolveRelationships - determinedRelationships: ");
+            //Main.printStringArray(determinedRelationships);
 
             for (String relation : determinedRelationships) {
                 if(relation.trim().equals(variable.name)) {
@@ -535,7 +535,7 @@ public class Parser {
                 }
                 for (String existingVariableName : variableNames) {
                     if (relation.trim().equals(existingVariableName)) {
-                        Main.println("");
+                        //Main.println("");
                         Variable tempVariable = new Variable(variable.type, relation);
                         extractedVariables.add(tempVariable);
                     }
@@ -582,12 +582,12 @@ public class Parser {
             */
 
             Variable[] extractedRelations = extractRelationships(variable);
-            Main.println("resolveRelationships - extractedRelations: ");
+            //Main.println("resolveRelationships - extractedRelations: ");
             for(Variable relation : extractedRelations) {
                 Main.println("relation Name: " + relation.name);
             }
 
-            Main.println("");
+            //Main.println("");
 
             //Make a copy of the variable being inspected...
             Variable tempVariable = variable;

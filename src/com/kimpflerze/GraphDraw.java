@@ -123,19 +123,16 @@ public class GraphDraw extends JFrame {
 // }
 
     public void DrawVariables(Variable[] resolvedVariables) {
-   	GraphDraw frame = new GraphDraw("Relationship Graph");
+		GraphDraw frame = new GraphDraw("Relationship Graph");
 
-	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	final int FRAME_WIDTH = (int) screenSize.getWidth();
-	final int FRAME_HEIGHT = (int) screenSize.getHeight();
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		final int FRAME_WIDTH = (int) screenSize.getWidth();
+		final int FRAME_HEIGHT = (int) screenSize.getHeight();
 
-//   	final int FRAME_WIDTH = 1000;
-//   	final int FRAME_HEIGHT = 1000;
-   	//final int NUMBER_NODES_PER_RING = 20;
 		final int NUMBER_NODES_PER_RING = resolvedVariables.length / 2;
-	 frame.setSize(FRAME_WIDTH,FRAME_HEIGHT);
+		frame.setSize(FRAME_WIDTH,FRAME_HEIGHT);
 
-	 frame.setVisible(true);
+		frame.setVisible(true);
     	// int x = 0;
     	// int y = 0;
     	Random ran = new Random();
@@ -149,23 +146,22 @@ public class GraphDraw extends JFrame {
 
     	//drawing nodes for all variables
     	ArrayList<Integer> list = new ArrayList<Integer>();
-    	for (int i = 0; i <360 ; i=i+(360/NUMBER_NODES_PER_RING)) {
+    	for (int i = 0; i < 360 ; i=i+(360/NUMBER_NODES_PER_RING)) {
+    		Main.println("" + i);
     		list.add(i);
     	}
     	//int radius = ran.nextInt(200)+ 200;
-		int radiusWidth = (int)(FRAME_WIDTH * 0.25);
-		int radiusHeight = (int)(FRAME_HEIGHT * 0.25);
-		//int radius = ran.nextInt(radiusHeight)+ radiusHeight;
-		int radius = FRAME_HEIGHT - (int)(2.3 * radiusHeight);
+		double radiusHeight = (FRAME_HEIGHT * 0.25);
+		double radius = FRAME_HEIGHT - (2.3 * radiusHeight);
     	Main.print("Radius: " + radius);
     	int x_cen = FRAME_WIDTH / 2;
     	int y_cen = FRAME_HEIGHT / 2;
     	Main.println("Centers: " + x_cen + ", " + y_cen);
     	count = 0;
     	for(Variable v : resolvedVariables) {
-    		if (count >= NUMBER_NODES_PER_RING) {
+    		if (count > NUMBER_NODES_PER_RING) {
 				//radius = rand.nextInt(400) + 100;
-    			radius = radiusHeight - (int)(radiusHeight * 0.1);
+    			radius = radiusHeight - (radiusHeight * 0.2);
     			count = 0;
     		}
     		int x = (int)(radius * Math.cos(Math.toRadians(list.get(count))));
@@ -195,6 +191,7 @@ public class GraphDraw extends JFrame {
     	}
      }
 
+     /*
      public void DrawTaintSpreadGraph(Variable[] resolvedVariables) {
 		 GraphDraw frame = new GraphDraw("Relationship Graph");
 
@@ -221,9 +218,8 @@ public class GraphDraw extends JFrame {
 			 list.add(i);
 		 }
 
-		 int radiusWidth = (int)(FRAME_WIDTH * 0.2);
 		 int radiusHeight = (int)(FRAME_HEIGHT * 0.25);
-		 int radius = FRAME_HEIGHT - (int)(2.3 * radiusHeight);
+		 double radius = FRAME_HEIGHT - (int)(2.3 * radiusHeight);
 		 Main.print("Radius: " + radius);
 		 int x_cen = FRAME_WIDTH / 2;
 		 int y_cen = FRAME_HEIGHT / 2;
@@ -231,20 +227,20 @@ public class GraphDraw extends JFrame {
 		 count = 0;
 		 for(Variable v : resolvedVariables) {
 		 	if(v.tainted) {
-				if (count >= NUMBER_NODES_PER_RING) {
-					radius = radiusHeight - (int) (radiusHeight * 0.1);
+				if (count > NUMBER_NODES_PER_RING) {
+					radius = radiusHeight - (radiusHeight * 0.1);
 					count = 0;
 				}
 				int x = (int) (radius * Math.cos(Math.toRadians(list.get(count))));
 				int y = (int) (radius * Math.sin(Math.toRadians(list.get(count))));
 
-				frame.addNode(v.getClassName() + "." + v.getName(), x + x_cen, y + y_cen, v.tainted);
+				frame.addNode(v.className + "." + v.getName(), x + x_cen, y + y_cen, v.tainted);
 				Main.println("Node: " + v.getClassName() + "." + v.getName() + ", " + x + x_cen + ", " + y + y_cen + ", " + v.tainted + "\n");
 				count = count + 1;
 			}
 		 }
 
-		 //drwaing edges between related variables
+		 //Drawing edges between related variables
 		 for(Variable v : resolvedVariables) {
 			 int a = hmap.get(v.getName());
 			 //Main.println("i am graphing " + v.getName() + " and I found it an hmap index " + a);
@@ -262,6 +258,7 @@ public class GraphDraw extends JFrame {
 			 }
 		 }
 	 }
+	 */
 
      //THIS FUNCTION IS FOR TESTING ONLY! IT DOESNT REALLY EXECUTE IN NORMAL RUNS!
     public static void main(String[] args) {

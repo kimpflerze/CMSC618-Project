@@ -78,7 +78,7 @@ public class GenerateGephiFile{
         for(Variable v : resolvedVariables) {
             //addNode(v.getClassName() + "." + v.getName(), 0, 0, v.tainted);
             nodes.add(new Node(v.className + "." + v.name, 0, 0, v.tainted));
-            Main.println("Node: " + v.getClassName() + "." + v.getName() + ", " + v.tainted + "\n");
+            //Main.println("Node: " + v.getClassName() + "." + v.getName() + ", " + v.tainted + "\n");
             count = count + 1;
         }
 
@@ -114,7 +114,7 @@ public class GenerateGephiFile{
             nodeDefinitionString += n.name;
             nodeDefinitionString += "\"/>";
 
-            Main.println(nodeDefinitionString);
+            //Main.println(nodeDefinitionString);
             nodesList.add(nodeDefinitionString);
         }
 
@@ -132,7 +132,7 @@ public class GenerateGephiFile{
             edgeRelationString += eiIndex;
             edgeRelationString += "\"/>";
 
-            Main.println(edgeRelationString + "\t" + edgesRelationsList.size());
+            //Main.println(edgeRelationString + "\t" + edgesRelationsList.size());
             edgesRelationsList.add(edgeRelationString);
 
             idCounter++;
