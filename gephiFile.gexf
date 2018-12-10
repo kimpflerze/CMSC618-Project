@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns:viz="http:///www.gexf.net/1.1draft/viz" version="1.1" xmlns="http://www.gexf.net/1.1draft">
+<meta lastmodifieddate="2010-03-03+23:44">
+<creator>GenerateGephiFile</creator>
+<description>An influence visualization</description></meta>
+<graph defaultedgetype="directed" idtype="string" type="static">
+<nodes count="15">
+<node id="0.0" label="ExampleProgram.new1"/>
+<node id="1.0" label="ExampleProgram.newTwo"/>
+<node id="2.0" label="ExampleProgram.newThree"/>
+<node id="3.0" label="ExampleProgram.x"/>
+<node id="4.0" label="ExampleProgram.a"/>
+<node id="5.0" label="ExampleProgram.b"/>
+<node id="6.0" label="ExampleProgram.test"/>
+<node id="7.0" label="ExampleProgram.func"/>
+<node id="8.0" label="ExampleProgram.c"/>
+<node id="9.0" label="ExampleProgram.a_copy"/>
+<node id="10.0" label="ExampleProgram.taintedVariable"/>
+<node id="11.0" label="ExampleProgram.mixedBagArray"/>
+<node id="12.0" label="ExampleProgram.sum"/>
+<node id="13.0" label="ExampleProgram.d"/>
+<node id="14.0" label="ExampleProgram.e"/>
+</nodes>
+<edges count="11">
+<edge id="0" source="8.0" target="0.0"/>
+<edge id="1" source="1.0" target="2.0"/>
+<edge id="2" source="4.0" target="3.0"/>
+<edge id="3" source="4.0" target="6.0"/>
+<edge id="4" source="4.0" target="7.0"/>
+<edge id="5" source="5.0" target="7.0"/>
+<edge id="6" source="4.0" target="9.0"/>
+<edge id="7" source="11.0" target="12.0"/>
+<edge id="8" source="8.0" target="13.0"/>
+<edge id="9" source="8.0" target="14.0"/>
+<edge id="10" source="13.0" target="14.0"/>
+</edges>
+</graph>
+</gexf>

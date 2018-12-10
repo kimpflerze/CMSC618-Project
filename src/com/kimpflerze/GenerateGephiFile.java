@@ -77,7 +77,7 @@ public class GenerateGephiFile{
         count = 0;
         for(Variable v : resolvedVariables) {
             //addNode(v.getClassName() + "." + v.getName(), 0, 0, v.tainted);
-            nodes.add(new Node(v.name, 0, 0, v.tainted));
+            nodes.add(new Node(v.className + "." + v.name, 0, 0, v.tainted));
             Main.println("Node: " + v.getClassName() + "." + v.getName() + ", " + v.tainted + "\n");
             count = count + 1;
         }
@@ -127,9 +127,9 @@ public class GenerateGephiFile{
             edgeRelationString = "<edge id=\"";
             edgeRelationString += idCounter;
             edgeRelationString += "\" source=\"";
-            edgeRelationString += eiIndex;
-            edgeRelationString += "\" target=\"";
             edgeRelationString += ejIndex;
+            edgeRelationString += "\" target=\"";
+            edgeRelationString += eiIndex;
             edgeRelationString += "\"/>";
 
             Main.println(edgeRelationString + "\t" + edgesRelationsList.size());
@@ -147,9 +147,10 @@ public class GenerateGephiFile{
             headerArray.add("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
             headerArray.add("<gexf xmlns:viz=\"http:///www.gexf.net/1.1draft/viz\" version=\"1.1\" xmlns=\"http://www.gexf.net/1.1draft\">\n");
             headerArray.add("<meta lastmodifieddate=\"2010-03-03+23:44\">\n");
-            headerArray.add("<creator>Gephi 0.7</creator>\n");
+            headerArray.add("<creator>GenerateGephiFile</creator>\n");
+            headerArray.add("<description>An influence visualization</description>");
             headerArray.add("</meta>\n");
-            headerArray.add("<graph defaultedgetype=\"undirected\" idtype=\"string\" type=\"static\">\n");
+            headerArray.add("<graph defaultedgetype=\"directed\" idtype=\"string\" type=\"static\">\n");
             for(String headerLine : headerArray) {
                 fileWriter.write(headerLine);
             }

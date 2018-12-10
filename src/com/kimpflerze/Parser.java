@@ -1,7 +1,6 @@
 package com.kimpflerze;
 
 import java.util.*;
-import java.util.Arrays;
 import java.io.*;
 import java.util.regex.PatternSyntaxException;
 
@@ -25,7 +24,38 @@ public class Parser {
         }
         return array;
     }
+    public static int[] analysis(Variable[] extractedVariables) {
+        int total_indegree = 0;
+        int total_outdegree = 0;
+        int total_tainted = 0;
+        int tempcount = 0;
+        for (Variable v : extractedVariables) {
+            total_indegree = total_indegree + v.relationships.length;
+            v.setInDegree(total_indegree);
+            if(v.tainted == true) {
+                total_tainted = total_tainted + 1;
+            }
+            for (Variable s: extractedVariables) {
+                for (Variable t: s.getRelationships()) {
+                    if(t.name.equals(v.name)) {
+                        tempcount = tempcount+1;
+                    }
+                }
+            }
+            v.setOutDegree(tempcount);
+            total_outdegree = total_outdegree + tempcount;
 
+            Main.println(" Variable " + v.getName() + " indegree is " + String.valueOf(v.relationships.length));
+            Main.println(" Variable " + v.getName() + " outdegree is " + String.valueOf(tempcount));
+            tempcount = 0;
+        }
+        int [] toreturn = new int[3];
+        toreturn[0] = total_indegree;
+        toreturn[1] = total_outdegree;
+        toreturn[2] = total_tainted;
+        return toreturn;
+
+    }
     public static Variable[] variableListToArray(List<Variable> variables) {
         Variable[] array = new Variable[variables.size()];
         for(int i = 0; i < variables.size(); i++) {
@@ -307,7 +337,24 @@ public class Parser {
         Main.println("Test 1 Value: " + value);
         return (value.substring(value.indexOf("(") + 1, value.indexOf(")")));
     }
+    private static String[] removeduplicate(String [] arr) {
+        int end = arr.length;
+        Set<String> set = new HashSet<String>();
 
+        for(int i = 0; i < end; i++){
+            set.add(arr[i]);
+        }
+        Iterator<String> it = set.iterator();
+        String [] toreturn = new String[set.size()];
+        int temp = 0;
+        while(it.hasNext()) {
+            toreturn[temp] = (String) it.next();
+            temp = temp+1;
+//    	  System.out.println(it.next());
+
+        }
+        return toreturn;
+    }
     private static String[] determineRelationships1(String value) {
         //First, split the value on white space
         Main.println("Searching relationships for    " + value);
@@ -330,7 +377,7 @@ public class Parser {
                     toreturn.add(p.trim());
                 }
             }
-            return stringListToArray(toreturn);
+            return removeduplicate(stringListToArray(toreturn));
 //            return(determineAttributes(findbrackets(Arrays.toString(withoutnew))));
         } else if (value.indexOf('(') != -1 && value.indexOf(')') != -1 && value.indexOf(',') != -1) {
             Main.println("its a function");
@@ -343,7 +390,7 @@ public class Parser {
                     toreturn.add(p.trim());
                 }
             }
-            return stringListToArray(toreturn);
+            return removeduplicate(stringListToArray(toreturn));
 
         } else {
 
@@ -483,6 +530,9 @@ public class Parser {
             Main.printStringArray(determinedRelationships);
 
             for (String relation : determinedRelationships) {
+                if(relation.trim().equals(variable.name)) {
+                    continue;
+                }
                 for (String existingVariableName : variableNames) {
                     if (relation.trim().equals(existingVariableName)) {
                         Main.println("");

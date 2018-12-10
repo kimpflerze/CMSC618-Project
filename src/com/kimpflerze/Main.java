@@ -75,6 +75,7 @@ public class Main {
             String[] classNames = Parser.findClassAndSubClassNames(originalLines);
             //String currentClassName = classNames[0];
             String currentClassName = classNameFromFileName;
+            println("CurrentClassName: " + currentClassName + ", " + dotIndex);
             System.out.println("\nClass Names:");
             printStringArray(classNames);
             System.out.println(":End of Class Names\n");
@@ -120,7 +121,18 @@ public class Main {
 
             classResolvedRelationsList.add(resolvedVariables);
             println("going to taint variables ");
-            Parser.taintSpread(resolvedVariables,"c" , 1);
+
+            //Display names of variables and prompt for which one is tainted...
+            println("\n\n");
+            println("Extracted Variables: ");
+            for(Variable variable : resolvedVariables) {
+                println("\t" + variable.name);
+            }
+            println("\nWhich Variable is Sensitive?: ");
+            String sensitiveVariableName = scanner.nextLine().trim();
+
+
+            Parser.taintSpread(resolvedVariables, sensitiveVariableName , 1);
             println("checking taint");
             for(int m = 0; m < resolvedVariables.length; m++) {
                 if(resolvedVariables[m].tainted == true) {

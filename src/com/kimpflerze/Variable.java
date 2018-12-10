@@ -10,6 +10,8 @@ public class Variable {
     String name;
     List<String> value = new ArrayList<String>();
     Variable[] relationships;
+    int InDegree;
+    int OutDegree;
     boolean tainted;
 
     public Variable(String type, String name) {
@@ -31,6 +33,13 @@ public class Variable {
         this.tainted = false;
     }
 
+    public void setInDegree(int value) {
+        this.InDegree = value;
+    }
+
+    public void setOutDegree(int value) {
+        this.OutDegree = value;
+    }
 
     public Variable(String type, String name, Variable[] relationships) {
 
@@ -47,7 +56,7 @@ public class Variable {
     public void setValue(List<String> value) {
         this.value = value;
     }
-    
+
     public void setTainted(boolean value) {
         this.tainted = value;
     }
