@@ -137,6 +137,18 @@ public class Main {
                     println(resolvedVariables[m].name + " is tainted.");
                 }
             }
+
+            println("end checking");
+            int [] data = Parser.analysis(resolvedVariables);
+            println("Analysis of program " + path);
+            println("Total no. of nodes = " + String.valueOf(resolvedVariables.length));
+            println("Total Tainted nodes = " + String.valueOf(data[2]));
+            println("Total In-Degree of nodes = " + String.valueOf(data[0]));
+            println("Total Out-Degree of nodes = " + String.valueOf(data[1]));
+            println("Average Taint = " + Double.toString(Double.valueOf(data[2])/resolvedVariables.length));
+            println("Average In-Degree of nodes = " + Double.toString(Double.valueOf(data[0])/resolvedVariables.length));
+            println("Average Out-Degree of nodes = " + Double.toString(Double.valueOf(data[1])/resolvedVariables.length));
+
         }
 
         Variable[] combinedClassRelations = Parser.variableListToArray(combineClasses(classResolvedRelationsList));

@@ -147,16 +147,16 @@ public class GraphDraw extends JFrame {
     	//drawing nodes for all variables
     	ArrayList<Integer> list = new ArrayList<Integer>();
     	for (int i = 0; i < 360 ; i=i+(360/NUMBER_NODES_PER_RING)) {
-    		Main.println("" + i);
+    		//Main.println("" + i);
     		list.add(i);
     	}
     	//int radius = ran.nextInt(200)+ 200;
 		double radiusHeight = (FRAME_HEIGHT * 0.25);
 		double radius = FRAME_HEIGHT - (2.3 * radiusHeight);
-    	Main.print("Radius: " + radius);
+    	//Main.print("Radius: " + radius);
     	int x_cen = FRAME_WIDTH / 2;
     	int y_cen = FRAME_HEIGHT / 2;
-    	Main.println("Centers: " + x_cen + ", " + y_cen);
+    	//Main.println("Centers: " + x_cen + ", " + y_cen);
     	count = 0;
     	for(Variable v : resolvedVariables) {
     		if (count > NUMBER_NODES_PER_RING) {

@@ -56,6 +56,7 @@ public class Parser {
         return toreturn;
 
     }
+
     public static Variable[] variableListToArray(List<Variable> variables) {
         Variable[] array = new Variable[variables.size()];
         for(int i = 0; i < variables.size(); i++) {
@@ -177,7 +178,7 @@ public class Parser {
                                 int openBracketIndex = className.indexOf("{");
                                 className = className.substring(0, openBracketIndex).trim();
                             }
-                            Main.println("Found class named " + className);
+                            //Main.println("Found class named " + className);
                             classNamesList.add(className);
                         } catch (IndexOutOfBoundsException e) {
                             System.out.println("Index out of bounds in function findClassAndSubClassNames!");
@@ -265,7 +266,7 @@ public class Parser {
         int startIndex = 0;
         for(int i = 0; i < indexList.length; i++) {
             valueSubstring = value.substring(startIndex, indexList[i]).trim();
-            Main.println("ValueSubstring: " + valueSubstring);
+            //Main.println("ValueSubstring: " + valueSubstring);
             if(!valueSubstring.isEmpty()) {
                 operatorSplit.add(valueSubstring);
                 startIndex = indexList[i] + 1;
@@ -381,7 +382,7 @@ public class Parser {
 //            return(determineAttributes(findbrackets(Arrays.toString(withoutnew))));
         } else if (value.indexOf('(') != -1 && value.indexOf(')') != -1 && value.indexOf(',') != -1) {
             //Main.println("its a function");
-            Main.println(value);
+            //Main.println(value);
             String [] temp = determineAttributes(findbrackets(value));
             List<String> toreturn = new ArrayList<String>();
             for (String s : temp) {
@@ -508,7 +509,7 @@ public class Parser {
                         }
                     }
                 }
-                Main.println("");
+                //Main.println("");
             } catch(IndexOutOfBoundsException e) {
                 extractedVariables.add(new Variable("No Type Found!", definition));
             }
@@ -582,12 +583,7 @@ public class Parser {
             */
 
             Variable[] extractedRelations = extractRelationships(variable);
-            //Main.println("resolveRelationships - extractedRelations: ");
-            for(Variable relation : extractedRelations) {
-                Main.println("relation Name: " + relation.name);
-            }
 
-            //Main.println("");
 
             //Make a copy of the variable being inspected...
             Variable tempVariable = variable;
@@ -608,7 +604,6 @@ public class Parser {
             resolvedVariables.add(tempVariable);
         }
         //Return the list once all of the looping is done.
-        //This means
         return variableListToArray(resolvedVariables);
     }
 
