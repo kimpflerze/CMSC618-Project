@@ -63,7 +63,7 @@ public class GenerateGephiFile{
         edges.add(new edge(i, j));
     }
 
-    public void generateGexfFile(Variable[] resolvedVariables) { // draw the nodes and edges
+    public void generateGexfFile(Variable[] resolvedVariables, String outputFileName) { // draw the nodes and edges
         //<node id="0.0" label="Myriel"/>
         //<edge id="0" source="1.0" target="0.0"/>
 
@@ -140,7 +140,7 @@ public class GenerateGephiFile{
 
         //Now write it all to a file in correct order...
         try {
-            FileWriter fileWriter = new FileWriter("gephiFile.gexf");
+            FileWriter fileWriter = new FileWriter(outputFileName);
 
             //Print file header...
             List<String> headerArray = new ArrayList<String>();

@@ -164,7 +164,14 @@ public class Main {
         }
         else if(selection == 2) {
             GenerateGephiFile gephiGenerator = new GenerateGephiFile();
-            gephiGenerator.generateGexfFile(combinedClassRelations);
+
+            String concatFileNames = "";
+            for(String fileName : filePaths) {
+                concatFileNames += fileName + "";
+            }
+            concatFileNames += "-Gephi.gexf";
+
+            gephiGenerator.generateGexfFile(combinedClassRelations, concatFileNames);
         }
         else {
             println("No output!");
