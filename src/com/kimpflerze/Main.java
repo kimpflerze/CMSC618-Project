@@ -138,16 +138,16 @@ public class Main {
                 }
             }
 
-            println("end checking");
             int [] data = Parser.analysis(resolvedVariables);
-            println("Analysis of program " + path);
-            println("Total no. of nodes = " + String.valueOf(resolvedVariables.length));
-            println("Total Tainted nodes = " + String.valueOf(data[2]));
-            println("Total In-Degree of nodes = " + String.valueOf(data[0]));
-            println("Total Out-Degree of nodes = " + String.valueOf(data[1]));
-            println("Average Taint = " + Double.toString(Double.valueOf(data[2])/resolvedVariables.length));
-            println("Average In-Degree of nodes = " + Double.toString(Double.valueOf(data[0])/resolvedVariables.length));
-            println("Average Out-Degree of nodes = " + Double.toString(Double.valueOf(data[1])/resolvedVariables.length));
+            println("\n\nAnalysis:");
+            println("\tAnalysis of program " + path);
+            println("\tTotal no. of nodes = " + String.valueOf(resolvedVariables.length));
+            println("\tTotal Tainted nodes = " + String.valueOf(data[2]));
+            println("\tTotal In-Degree of nodes = " + String.valueOf(data[0]));
+            println("\tTotal Out-Degree of nodes = " + String.valueOf(data[1]));
+            println("\tAverage Taint = " + Double.toString(Double.valueOf(data[2])/resolvedVariables.length));
+            println("\tAverage In-Degree of nodes = " + Double.toString(Double.valueOf(data[0])/resolvedVariables.length));
+            println("\tAverage Out-Degree of nodes = " + Double.toString(Double.valueOf(data[1])/resolvedVariables.length) + "\n\n");
 
         }
 

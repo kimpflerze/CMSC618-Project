@@ -29,6 +29,7 @@ public class Parser {
         int total_outdegree = 0;
         int total_tainted = 0;
         int tempcount = 0;
+        Main.println("\n\nIn/Out Degree of Individual Variables: ");
         for (Variable v : extractedVariables) {
             total_indegree = total_indegree + v.relationships.length;
             v.setInDegree(total_indegree);
@@ -45,8 +46,8 @@ public class Parser {
             v.setOutDegree(tempcount);
             total_outdegree = total_outdegree + tempcount;
 
-            Main.println(" Variable " + v.getName() + " indegree is " + String.valueOf(v.relationships.length));
-            Main.println(" Variable " + v.getName() + " outdegree is " + String.valueOf(tempcount));
+            Main.println("\tVariable " + v.getName() + " indegree is " + String.valueOf(v.relationships.length));
+            Main.println("\tVariable " + v.getName() + " outdegree is " + String.valueOf(tempcount));
             tempcount = 0;
         }
         int [] toreturn = new int[3];
