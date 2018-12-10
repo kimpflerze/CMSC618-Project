@@ -1,0 +1,25 @@
+READ-ME
+=======
+
+How to execute CMSC618JavaParser.jar:
+	(1) Place CMSC618JavaParser.jar in the directory of the source code you wish to parse...
+	(2) Open terminal/command line and enter...
+		java -jar CMSC618JavaParser.jar
+	(3) Follow any prompts displayed
+		Prompts will appear as follows...
+			(a) Input file names to parse...
+				Ex) ExampleProgram.java, AnotherProgram.java, LastProgram.java
+				- This will produce a single graph or Gephi output file!
+			(b) Input name of tainted variable (per class!)
+				Ex) c
+				- If ExampleProgram.java has a sensitive variable named "a", enter "a".
+				- If there is no sensitive variable within a class, press enter or space or enter an unused variable name.
+			(c) Choose output type
+				- 1 for researcher's graph output
+				- 2 for Gephi graph file
+				- Anything else to quick without output!
+
+Otherwise, to edit the code or make any other desired changes, opening the source code will be required. That can be found within the normal Java project directory. I.e.) Witin the "src" folder. 
+
+In addition, we have included the sample files that were tested with for results discussed in the paper. 
+
