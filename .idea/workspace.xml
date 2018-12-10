@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="CMSC618JavaParser:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="89268621-c4cd-46b4-a3b5-6eb28a53889e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CMSC618JavaParser/com/kimpflerze/GraphDraw$Node.class" afterPath="$PROJECT_DIR$/out/production/CMSC618JavaParser/com/kimpflerze/GraphDraw$Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CMSC618JavaParser/com/kimpflerze/GraphDraw$edge.class" afterPath="$PROJECT_DIR$/out/production/CMSC618JavaParser/com/kimpflerze/GraphDraw$edge.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/kimpflerze/GenerateGephiFile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CMSC618JavaParser/com/kimpflerze/GraphDraw.class" afterPath="$PROJECT_DIR$/out/production/CMSC618JavaParser/com/kimpflerze/GraphDraw.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CMSC618JavaParser/com/kimpflerze/Main.class" afterPath="$PROJECT_DIR$/out/production/CMSC618JavaParser/com/kimpflerze/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExampleProgram.txt" afterPath="$PROJECT_DIR$/ExampleProgram.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kimpflerze/GraphDraw.java" afterPath="$PROJECT_DIR$/src/com/kimpflerze/GraphDraw.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kimpflerze/Main.java" afterPath="$PROJECT_DIR$/src/com/kimpflerze/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kimpflerze/Parser.java" afterPath="$PROJECT_DIR$/src/com/kimpflerze/Parser.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="62" column="69" lean-forward="false" selection-start-line="62" selection-start-column="69" selection-end-line="62" selection-end-column="69" />
+            <state relative-caret-position="735">
+              <caret line="128" column="13" lean-forward="true" selection-start-line="128" selection-start-column="13" selection-end-line="128" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -35,8 +39,8 @@
       <file leaf-file-name="ExampleProgram.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/ExampleProgram.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="60">
+              <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -67,15 +71,36 @@
       <file leaf-file-name="GraphDraw.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/GraphDraw.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="52" column="20" lean-forward="false" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
+            <state relative-caret-position="1679">
+              <caret line="210" column="0" lean-forward="false" selection-start-line="210" selection-start-column="0" selection-end-line="262" selection-end-column="10" />
               <folding>
-                <element signature="e#0#8846#0" expanded="true" />
+                <element signature="e#0#8847#0" expanded="true" />
                 <element signature="imports" expanded="true" />
                 <element signature="e#3859#3876#0" expanded="true" />
                 <element signature="e#4096#4105#0" expanded="true" />
-                <element signature="e#6374#6391#0" expanded="true" />
-                <element signature="e#6597#6606#0" expanded="true" />
+                <element signature="e#6375#6392#0" expanded="true" />
+                <element signature="e#6598#6607#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GenerateGephiFile.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/GenerateGephiFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1344">
+              <caret line="131" column="42" lean-forward="true" selection-start-line="131" selection-start-column="42" selection-end-line="131" selection-end-column="42" />
+              <folding>
+                <element signature="e#625#631#0" expanded="true" />
+                <element signature="e#684#690#0" expanded="true" />
+                <element signature="e#736#737#0" expanded="true" />
+                <element signature="e#765#766#0" expanded="true" />
+                <element signature="e#1706#1723#0" expanded="true" />
+                <element signature="e#2886#2902#0" expanded="true" />
+                <element signature="e#3080#3088#0" expanded="true" />
+                <element signature="e#3152#3160#0" expanded="true" />
+                <element signature="e#3756#3778#0" expanded="true" />
+                <element signature="e#4673#4681#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,13 +140,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>new value</find>
-      <find>new</find>
-      <find>extractRelations</find>
-      <find>{</find>
-      <find>sum</find>
-      <find>determineAtt</find>
-      <find>rv</find>
       <find>i am graph</find>
       <find>12</find>
       <find>rand</find>
@@ -145,6 +163,13 @@
       <find>&amp;&amp;&amp;&amp;</find>
       <find>isLine</find>
       <find>taintSpread</find>
+      <find>\/\* Simple graph drawing class\nBert Huang\nCOMS 3137 Data Structures and Algorithms\, Spring 2009\n\nThis class is really elementary\, but lets you draw \nreasonably nice graphs\/trees\/diagrams\. Feel free to \nimprove upon it\!\n \*\/\npackage com\.kimpflerze\;\n\nimport javax\.swing\.\*\;\nimport java\.awt\.\*\;\nimport java\.util\.ArrayList\;\nimport java\.util\.HashMap\;\nimport java\.util\.Random\;\n\npublic class GenerateGephiFile extends JFrame \{\n    int width\;\n    int height\;\n\n    ArrayList\&lt;Node\&gt; nodes\;\n    ArrayList\&lt;edge\&gt; edges\;\n    Random randC \= new Random\(\)\;\n\n    public GenerateGephiFile\(\) \{ \/\/Constructor\n        this\.setDefaultCloseOperation\(JFrame\.EXIT_ON_CLOSE\)\;\n\	\	nodes \= new ArrayList\&lt;Node\&gt;\(\)\;\n\	\	edges \= new ArrayList\&lt;edge\&gt;\(\)\;\n\	\	width \= 50\;\n\	\	height \= 20\;\n\	\	\}\n\n\	\	public GenerateGephiFile\(String name\) \{ \/\/Construct with label\n\	\	this\.setTitle\(name\)\;\n\	\	this\.setDefaultCloseOperation\(JFrame\.EXIT_ON_CLOSE\)\;\n\	\	nodes \= new ArrayList\&lt;Node\&gt;\(\)\;\n\	\	edges \= new ArrayList\&lt;edge\&gt;\(\)\;\n\	\	width \= 50\;\n\	\	height \= 30\;\n\	\	\}\n\n\	\	class Node \{\n\	\	int x\, y\;\n\	\	String name\;\n\	\	Color color\;\n\	\	boolean tainted\;\n\n\	\	public Node\(String myName\, int myX\, int myY\, boolean t\) \{\n\	\	\	x \= myX\;\n\	\	\	y \= myY\;\n\	\	\	name \= myName\;\n\	\	\	color  \= new Color\(randC\.nextFloat\(\)\, randC\.nextFloat\(\)\, randC\.nextFloat\(\)\)\;\n\	\	\	tainted  \= t\;\n\	\	\}\n    \}\n\n    class edge \{\n\	\	int i\,j\;\n\n\	\	public edge\(int ii\, int jj\) \{\n\	\	\	i \= ii\;\n\	\	\	j \= jj\;\n\	\	\}\n    \}\n\n    public void addNode\(String name\, int x\, int y\, boolean tainted\) \{\n\	\/\/add a node at pixel \(x\,y\)\n\	nodes\.add\(new Node\(name\,x\,y\,tainted\)\)\;\n\	this\.repaint\(\)\;\n    \}\n    public void addEdge\(int i\, int j\) \{\n\	\/\/add an edge between nodes i and j\n\	edges\.add\(new edge\(i\,j\)\)\;\n\	this\.repaint\(\)\;\n    \}\n\n    public void paint\(Graphics g\) \{ \/\/ draw the nodes and edges\n\	FontMetrics f \= g\.getFontMetrics\(\)\;\n\	int nodeHeight \= Math\.max\(height\, f\.getHeight\(\)\)\;\n\	Random rand \= new Random\(\)\;\n\	float r \= rand\.nextFloat\(\)\;\n\	float gg \= rand\.nextFloat\(\)\;\n\	float b \= rand\.nextFloat\(\)\;\n\	Color randomColor \= new Color\(r\, gg\, b\)\;\n\n\	Graphics2D g2 \= \(Graphics2D\) g\;\n\	for \(edge e \: edges\) \{\n\	\	g2\.setStroke\(new BasicStroke\(3\)\)\;\n\	\	g2\.setColor\(nodes\.get\(e\.j\)\.color\)\;\n\	    g2\.drawLine\(nodes\.get\(e\.i\)\.x\, nodes\.get\(e\.i\)\.y\,\n\	\	     nodes\.get\(e\.j\)\.x\, nodes\.get\(e\.j\)\.y\)\;\n\n\	\	\/\/Add in tainted edge marker\n\	\	int markerDimension \= 10\;\n\	\	int centerX \= \(int\)\(\(nodes\.get\(e\.i\)\.x \+ nodes\.get\(e\.j\)\.x\) \/ 2\) \- \(markerDimension \/ 2\)\;\n\	\	int centerY \= \(int\)\(\(nodes\.get\(e\.i\)\.y \+ nodes\.get\(e\.j\)\.y\) \/ 2\) \- \(markerDimension \/ 2\)\;\n\	\	if\(nodes\.get\(e\.i\)\.tainted \&amp;\&amp; nodes\.get\(e\.j\)\.tainted\) \{\n\	\	\	Color originalStrokeColor \= g2\.getColor\(\)\;\n\	\	\	g2\.setColor\(Color\.RED\)\;\n\	\	\	g2\.drawOval\(centerX\, centerY\, markerDimension\, markerDimension\)\;\n\	\	\	g2\.setColor\(originalStrokeColor\)\;\n\	\	\}\n\	\}\n\n\	for \(Node n \: nodes\) \{\n\	    int nodeWidth \= Math\.max\(width\, f\.stringWidth\(n\.name\)\+width\/2\)\;\n\	    g\.setColor\(n\.color\)\;\n\	    g\.fillOval\(n\.x\-nodeWidth\/2\, n\.y\-nodeHeight\/2\,\n\	\	       nodeWidth\, nodeHeight\)\;\n\	    g\.setColor\(Color\.black\)\;\n\	    g\.drawOval\(n\.x\-nodeWidth\/2\, n\.y\-nodeHeight\/2\,\n\	\	       nodeWidth\, nodeHeight\)\;\n\n\	\	g\.setColor\(Color\.white\)\;\n\	    g\.drawString\(n\.name\, n\.x\-f\.stringWidth\(n\.name\)\/2\,\n\	\	\	 n\.y\+f\.getHeight\(\)\/2\)\;\n\	\} \n    \}\n\n    public void DrawVariables\(Variable\[\] resolvedVariables\) \{\n   \	GenerateGephiFile frame \= new GenerateGephiFile\(\&quot;Relationship Graph\&quot;\)\;\n\n\	Dimension screenSize \= Toolkit\.getDefaultToolkit\(\)\.getScreenSize\(\)\;\n\	final int FRAME_WIDTH \= \(int\) screenSize\.getWidth\(\)\;\n\	final int FRAME_HEIGHT \= \(int\) screenSize\.getHeight\(\)\;\n\	\	\n\	final int NUMBER_NODES_PER_RING \= resolvedVariables\.length \/ 2\;\n\	frame\.setSize\(FRAME_WIDTH\,FRAME_HEIGHT\)\;\n\	\	\n\	frame\.setVisible\(true\)\;\n\	\	\/\/ int x \= 0\;\n    \	\/\/ int y \= 0\;\n    \	Random ran \= new Random\(\)\;\n\n    \	HashMap\&lt;String\, Integer\&gt; hmap \= new HashMap\&lt;String\, Integer\&gt;\(\)\;\n    \	int count \= 0\;\n    \	for \(Variable v \: resolvedVariables\) \{\n    \	\	hmap\.put\(v\.getName\(\)\, count\)\;\n    \	\	count \= count \+ 1\;\n    \	\}\n\n    \	\/\/drawing nodes for all variables\n    \	ArrayList\&lt;Integer\&gt; list \= new ArrayList\&lt;Integer\&gt;\(\)\;\n    \	for \(int i \= 0\; i \&lt;360 \; i\=i\+\(360\/NUMBER_NODES_PER_RING\)\) \{\n    \	\	list\.add\(i\)\;\n    \	\}\n    \	\/\/int radius \= ran\.nextInt\(200\)\+ 200\;\n\	\	int radiusWidth \= \(int\)\(FRAME_WIDTH \* 0\.25\)\;\n\	\	int radiusHeight \= \(int\)\(FRAME_HEIGHT \* 0\.25\)\;\n\	\	\/\/int radius \= ran\.nextInt\(radiusHeight\)\+ radiusHeight\;\n\	\	int radius \= FRAME_HEIGHT \- \(int\)\(2\.3 \* radiusHeight\)\;\n    \	Main\.print\(\&quot;Radius\: \&quot; \+ radius\)\;\n    \	int x_cen \= FRAME_WIDTH \/ 2\;\n    \	int y_cen \= FRAME_HEIGHT \/ 2\;\n    \	Main\.println\(\&quot;Centers\: \&quot; \+ x_cen \+ \&quot;\, \&quot; \+ y_cen\)\;\n    \	count \= 0\;\n    \	for\(Variable v \: resolvedVariables\) \{\n    \	\	if \(count \&gt;\= NUMBER_NODES_PER_RING\) \{\n\	\	\	\	\/\/radius \= rand\.nextInt\(400\) \+ 100\;\n    \	\	\	radius \= radiusHeight \- \(int\)\(radiusHeight \* 0\.1\)\;\n    \	\	\	count \= 0\;\n    \	\	\}\n    \	\	int x \= \(int\)\(radius \* Math\.cos\(Math\.toRadians\(list\.get\(count\)\)\)\)\;\n    \	\	int y \= \(int\)\(radius \* Math\.sin\(Math\.toRadians\(list\.get\(count\)\)\)\)\;\n\n    \	\	frame\.addNode\(v\.getClassName\(\) \+ \&quot;\.\&quot; \+ v\.getName\(\)\, x \+ x_cen\, y \+ y_cen\, v\.tainted\)\;\n    \	\	Main\.println\(\&quot;Node\: \&quot; \+ v\.getClassName\(\) \+ \&quot;\.\&quot; \+ v\.getName\(\) \+ \&quot;\, \&quot; \+ x \+ x_cen \+ \&quot;\, \&quot; \+ y \+ y_cen \+ \&quot;\, \&quot; \+ v\.tainted \+ \&quot;\\n\&quot;\)\;\n    \	\	count \= count \+ 1\;\n    \	\}\n\n    \	\/\/drwaing edges between related variables\n    \	for\(Variable v \: resolvedVariables\) \{\n    \	\	int a \= hmap\.get\(v\.getName\(\)\)\;\n\	\	\	\/\/Main\.println\(\&quot;i am graphing \&quot; \+ v\.getName\(\) \+ \&quot; and I found it an hmap index \&quot; \+ a\)\;\n    \	\	Variable \[\] rv \= v\.getRelationships\(\)\;\n\n    \	\	for \(Variable v2 \: rv\) \{\n\	\	\	\	String temp \= v2\.getName\(\)\;\n\n\	\	\	\	int b \= hmap\.get\(temp\)\;\n    \	\	\	\/\/Main\.println\(\&quot;parent var \&quot; \+ v\.getName\(\) \+ \&quot; relation with \&quot; \+ v2\.getName\(\) \+ \&quot; and I found it an hmap index \&quot; \+ b\)\;\n\n    \	\	\	if \(\!v\.getName\(\)\.trim\(\)\.equals\(v2\.getName\(\)\.trim\(\)\)\) \{\n\	\	\	\	\	frame\.addEdge\(a\, b\)\;\n\	\	\	\	\}\n\	\	\	\}\n    \	\}\n     \}\n\}</find>
+      <find>generate</find>
+      <find>generateGexf</find>
+      <find>paint</find>
+      <find>nodes</find>
+      <find>$</find>
+      <find>addNode</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -162,16 +187,17 @@
         <option value="$PROJECT_DIR$/src/com/kimpflerze/ExampleProgram.java" />
         <option value="$PROJECT_DIR$/src/com/kimpflerze/Variable.java" />
         <option value="$PROJECT_DIR$/Parser.txt" />
-        <option value="$PROJECT_DIR$/src/com/kimpflerze/GraphDraw.java" />
         <option value="$PROJECT_DIR$/src/com/kimpflerze/Parser.java" />
         <option value="$PROJECT_DIR$/ExampleProgram.txt" />
+        <option value="$PROJECT_DIR$/src/com/kimpflerze/GraphDraw.java" />
         <option value="$PROJECT_DIR$/src/com/kimpflerze/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/kimpflerze/GenerateGephiFile.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1680" />
+    <option name="width" value="1120" />
     <option name="height" value="1027" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -220,14 +246,20 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/com/kimpflerze" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/com/kimpflerze" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.kimpflerze" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/com/kimpflerze" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -337,8 +369,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1120" height="1027" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -353,7 +384,8 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19821429" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29732144" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -365,7 +397,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -378,35 +409,17 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Parser.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11977">
-          <caret line="413" column="0" lean-forward="false" selection-start-line="413" selection-start-column="0" selection-end-line="413" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/GraphDraw.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3364">
           <caret line="116" column="43" lean-forward="false" selection-start-line="116" selection-start-column="43" selection-end-line="116" selection-end-column="43" />
           <folding>
-            <element signature="e#0#8846#0" expanded="true" />
+            <element signature="e#0#8847#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#3859#3876#0" expanded="true" />
             <element signature="e#4096#4105#0" expanded="true" />
-            <element signature="e#6374#6391#0" expanded="true" />
-            <element signature="e#6597#6606#0" expanded="true" />
+            <element signature="e#6375#6392#0" expanded="true" />
+            <element signature="e#6598#6607#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -455,12 +468,12 @@
         <state relative-caret-position="75">
           <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
           <folding>
-            <element signature="e#0#8846#0" expanded="true" />
+            <element signature="e#0#8847#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#3859#3876#0" expanded="true" />
             <element signature="e#4096#4105#0" expanded="true" />
-            <element signature="e#6374#6391#0" expanded="true" />
-            <element signature="e#6597#6606#0" expanded="true" />
+            <element signature="e#6375#6392#0" expanded="true" />
+            <element signature="e#6598#6607#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -501,12 +514,12 @@
         <state relative-caret-position="59">
           <caret line="116" column="29" lean-forward="true" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="29" />
           <folding>
-            <element signature="e#0#8846#0" expanded="true" />
+            <element signature="e#0#8847#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#3859#3876#0" expanded="true" />
             <element signature="e#4096#4105#0" expanded="true" />
-            <element signature="e#6374#6391#0" expanded="true" />
-            <element signature="e#6597#6606#0" expanded="true" />
+            <element signature="e#6375#6392#0" expanded="true" />
+            <element signature="e#6598#6607#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -564,12 +577,12 @@
         <state relative-caret-position="75">
           <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
           <folding>
-            <element signature="e#0#8846#0" expanded="true" />
+            <element signature="e#0#8847#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#3859#3876#0" expanded="true" />
             <element signature="e#4096#4105#0" expanded="true" />
-            <element signature="e#6374#6391#0" expanded="true" />
-            <element signature="e#6597#6606#0" expanded="true" />
+            <element signature="e#6375#6392#0" expanded="true" />
+            <element signature="e#6598#6607#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -638,12 +651,12 @@
         <state relative-caret-position="353">
           <caret line="153" column="40" lean-forward="true" selection-start-line="153" selection-start-column="40" selection-end-line="153" selection-end-column="40" />
           <folding>
-            <element signature="e#0#8846#0" expanded="true" />
+            <element signature="e#0#8847#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#3859#3876#0" expanded="true" />
             <element signature="e#4096#4105#0" expanded="true" />
-            <element signature="e#6374#6391#0" expanded="true" />
-            <element signature="e#6597#6606#0" expanded="true" />
+            <element signature="e#6375#6392#0" expanded="true" />
+            <element signature="e#6598#6607#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -673,12 +686,12 @@
         <state relative-caret-position="75">
           <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
           <folding>
-            <element signature="e#0#8846#0" expanded="true" />
+            <element signature="e#0#8847#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#3859#3876#0" expanded="true" />
             <element signature="e#4096#4105#0" expanded="true" />
-            <element signature="e#6374#6391#0" expanded="true" />
-            <element signature="e#6597#6606#0" expanded="true" />
+            <element signature="e#6375#6392#0" expanded="true" />
+            <element signature="e#6598#6607#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -719,12 +732,12 @@
         <state relative-caret-position="59">
           <caret line="116" column="29" lean-forward="true" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="29" />
           <folding>
-            <element signature="e#0#8846#0" expanded="true" />
+            <element signature="e#0#8847#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#3859#3876#0" expanded="true" />
             <element signature="e#4096#4105#0" expanded="true" />
-            <element signature="e#6374#6391#0" expanded="true" />
-            <element signature="e#6597#6606#0" expanded="true" />
+            <element signature="e#6375#6392#0" expanded="true" />
+            <element signature="e#6598#6607#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -782,12 +795,12 @@
         <state relative-caret-position="75">
           <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
           <folding>
-            <element signature="e#0#8846#0" expanded="true" />
+            <element signature="e#0#8847#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#3859#3876#0" expanded="true" />
             <element signature="e#4096#4105#0" expanded="true" />
-            <element signature="e#6374#6391#0" expanded="true" />
-            <element signature="e#6597#6606#0" expanded="true" />
+            <element signature="e#6375#6392#0" expanded="true" />
+            <element signature="e#6598#6607#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -812,21 +825,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/ExampleProgram.txt" />
-    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/GraphDraw.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="52" column="20" lean-forward="false" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#8846#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#3859#3876#0" expanded="true" />
-            <element signature="e#4096#4105#0" expanded="true" />
-            <element signature="e#6374#6391#0" expanded="true" />
-            <element signature="e#6597#6606#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Parser.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7665">
@@ -843,14 +841,6 @@
             <element signature="imports" expanded="true" />
             <element signature="e#183#191#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/ExampleProgram.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -872,15 +862,141 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/ExampleProgram.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/GraphDraw.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1679">
+          <caret line="210" column="0" lean-forward="false" selection-start-line="210" selection-start-column="0" selection-end-line="262" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#8847#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3859#3876#0" expanded="true" />
+            <element signature="e#4096#4105#0" expanded="true" />
+            <element signature="e#6375#6392#0" expanded="true" />
+            <element signature="e#6598#6607#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="62" column="69" lean-forward="false" selection-start-line="62" selection-start-column="69" selection-end-line="62" selection-end-column="69" />
+        <state relative-caret-position="735">
+          <caret line="128" column="13" lean-forward="true" selection-start-line="128" selection-start-column="13" selection-end-line="128" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gephiFile.gexf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kimpflerze/GenerateGephiFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1344">
+          <caret line="131" column="42" lean-forward="true" selection-start-line="131" selection-start-column="42" selection-end-line="131" selection-end-column="42" />
+          <folding>
+            <element signature="e#625#631#0" expanded="true" />
+            <element signature="e#684#690#0" expanded="true" />
+            <element signature="e#736#737#0" expanded="true" />
+            <element signature="e#765#766#0" expanded="true" />
+            <element signature="e#1706#1723#0" expanded="true" />
+            <element signature="e#2886#2902#0" expanded="true" />
+            <element signature="e#3080#3088#0" expanded="true" />
+            <element signature="e#3152#3160#0" expanded="true" />
+            <element signature="e#3756#3778#0" expanded="true" />
+            <element signature="e#4673#4681#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>CMSC618JavaParser:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>CMSC618JavaParser</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

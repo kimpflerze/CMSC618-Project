@@ -40,7 +40,17 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        String[] filePaths = {"ExampleProgram.txt"};
+        Scanner scanner = new Scanner(System.in);
+        println("Please type out file names you wish to scan, separated by a comma...");
+        println("====================================================================");
+        String inputFilesNames = scanner.nextLine();
+
+        String[] filePaths = inputFilesNames.split(",");
+        for(int i = 0; i < filePaths.length; i++) {
+            filePaths[i] = filePaths[i].trim();
+            println("File: " + filePaths[i]);
+        }
+        //String[] filePaths = {"ExampleProgram.txt"};
 
         List<Variable[]> classResolvedRelationsList = new ArrayList<Variable[]>();
 
@@ -124,7 +134,9 @@ public class Main {
         Variable[] combinedClassRelations = Parser.variableListToArray(combineClasses(classResolvedRelationsList));
 
         GraphDraw graphDraw = new GraphDraw();
-        graphDraw.DrawVariables(combinedClassRelations);
+        //graphDraw.DrawVariables(combinedClassRelations);
 
+        GenerateGephiFile gephiGenerator = new GenerateGephiFile();
+        gephiGenerator.generateGexfFile(combinedClassRelations);
     }
 }

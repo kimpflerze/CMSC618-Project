@@ -153,7 +153,7 @@ public class GraphDraw extends JFrame {
     		list.add(i);
     	}
     	//int radius = ran.nextInt(200)+ 200;
-		int radiusWidth = (int)(FRAME_WIDTH * 0.2);
+		int radiusWidth = (int)(FRAME_WIDTH * 0.25);
 		int radiusHeight = (int)(FRAME_HEIGHT * 0.25);
 		//int radius = ran.nextInt(radiusHeight)+ radiusHeight;
 		int radius = FRAME_HEIGHT - (int)(2.3 * radiusHeight);

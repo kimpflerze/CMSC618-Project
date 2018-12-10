@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CMSC618JavaParser:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CMSC618JavaParser_jar</output-path>
+    <root id="archive" name="CMSC618JavaParser.jar">
+      <element id="module-output" name="CMSC618JavaParser" />
+    </root>
+  </artifact>
+</component>
