@@ -1,6 +1,8 @@
 package com.kimpflerze;
 
 import com.sun.corba.se.impl.orbutil.graph.Graph;
+import com.sun.org.apache.xpath.internal.operations.Variable;
+
 import java.util.*;
 
 public class Main {
@@ -127,27 +129,60 @@ public class Main {
             for(Variable variable : resolvedVariables) {
                 println("\t" + variable.name);
             }
-            println("\nWhich Variable is Sensitive? (' ' for none!): ");
-            String sensitiveVariableName = scanner.nextLine().trim();
+            println("\n Determining taint spread for all the variables");
+            println("=================================================================================")
+//            String sensitiveVariableName = scanner.nextLine().trim();
 
-
-            Parser.taintSpread(resolvedVariables, sensitiveVariableName , 1);
-            for(int m = 0; m < resolvedVariables.length; m++) {
-                if(resolvedVariables[m].tainted == true) {
-                    println(resolvedVariables[m].name + " is tainted.");
+            for (Varialbe v:resolvedVariables) {
+            	Variable [] tempVariables = resolvedVariables.clone()
+            	Parser.taintSpread(tempVariables, v.name , 1);
+            	println("Variable selected for tain spread check = " + v.name)
+            	for(int m = 0; m < tempVariables.length; m++) {
+            		if(tempVariables[m].tainted == true) {
+            			println(tempVariables[m].name + " is tainted.");
+            		}
+            	}
+            	int [] data = Parser.analysis(tempVariables);
+            	println("\n\nAnalysis:");
+            	println("\tAnalysis of program " + path);
+            	println("Sensitive variable: " + v.name)
+                println("\tTotal no. of nodes = " + String.valueOf(resolvedVariables.length));
+                println("\tTotal Tainted nodes = " + String.valueOf(data[2]));
+                println("\tTotal In-Degree of nodes = " + String.valueOf(data[0]));
+                println("\tTotal Out-Degree of nodes = " + String.valueOf(data[1]));
+                println("\tAverage Taint = " + Double.toString(Double.valueOf(data[2])/resolvedVariables.length));
+                println("\tAverage In-Degree of nodes = " + Double.toString(Double.valueOf(data[0])/resolvedVariables.length));
+                println("\tAverage Out-Degree of nodes = " + Double.toString(Double.valueOf(data[1])/resolvedVariables.length) + "\n\n");
+                println("===============================================================================")
+                
+                println("\n\nDone with parsing, please select output format: ");
+                println("(1) Graph");
+                println("(2) Gephi GEXF File");
+                println("(0) Exit, no output");
+                Integer selection = scanner.nextInt();
+                if(selection == 1) {
+                    GraphDraw graphDraw = new GraphDraw();
+                    graphDraw.DrawVariables(tempVariables);
                 }
-            }
+                else if(selection == 2) {
+                    GenerateGephiFile gephiGenerator = new GenerateGephiFile();
 
-            int [] data = Parser.analysis(resolvedVariables);
-            println("\n\nAnalysis:");
-            println("\tAnalysis of program " + path);
-            println("\tTotal no. of nodes = " + String.valueOf(resolvedVariables.length));
-            println("\tTotal Tainted nodes = " + String.valueOf(data[2]));
-            println("\tTotal In-Degree of nodes = " + String.valueOf(data[0]));
-            println("\tTotal Out-Degree of nodes = " + String.valueOf(data[1]));
-            println("\tAverage Taint = " + Double.toString(Double.valueOf(data[2])/resolvedVariables.length));
-            println("\tAverage In-Degree of nodes = " + Double.toString(Double.valueOf(data[0])/resolvedVariables.length));
-            println("\tAverage Out-Degree of nodes = " + Double.toString(Double.valueOf(data[1])/resolvedVariables.length) + "\n\n");
+                    String concatFileNames = "";
+                    for(String fileName : filePaths) {
+                        concatFileNames += fileName + "";
+                    }
+                    concatFileNames += "-Gephi.gexf";
+
+                    gephiGenerator.generateGexfFile(tempVariables, concatFileNames);
+                }
+                else {
+                    println("No output!");
+                    System.exit(0);
+                }
+                println("===============================================================================")
+                del tempVariables
+            }
+            
 
         }
 
