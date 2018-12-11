@@ -24,6 +24,34 @@ public class Parser {
         }
         return array;
     }
+
+    public static Variable deepCopy(Variable object){
+        try {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+            objectOutputStream.writeObject(object);
+            ByteArrayInputStream bais = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+            ObjectInputStream objectInputStream = new ObjectInputStream(bais);
+            return (Variable) objectInputStream.readObject();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    public static void reverseTaint(Variable[] variables){
+        for (Variable v : variables){
+            v.setTainted(false);
+        }
+    }
+    public static Variable[] deepCopyArray(Variable[] variables) {
+        List<Variable> tempList = new ArrayList<Variable>();
+        for(Variable v : variables) {
+            tempList.add(deepCopy(v));
+        }
+        return variableListToArray(tempList);
+    }
+
     public static int[] analysis(Variable[] extractedVariables) {
         int total_indegree = 0;
         int total_outdegree = 0;

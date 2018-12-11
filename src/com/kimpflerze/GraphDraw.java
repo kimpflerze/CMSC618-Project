@@ -122,8 +122,9 @@ public class GraphDraw extends JFrame {
     }
 // }
 
-    public void DrawVariables(Variable[] resolvedVariables) {
-		GraphDraw frame = new GraphDraw("Relationship Graph");
+    public void DrawVariables(Variable[] resolvedVariables, String sensitiveVariableName) {
+		GraphDraw frame = new GraphDraw("Relationship Graph of " + sensitiveVariableName);
+		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		final int FRAME_WIDTH = (int) screenSize.getWidth();
