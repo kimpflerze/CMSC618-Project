@@ -4,6 +4,8 @@ import java.util.*;
 
 public class Main {
 
+    private static Scanner scanner = new Scanner(System.in);
+
     public static void println(String string) {
         System.out.println(string);
     }
@@ -36,6 +38,16 @@ public class Main {
         }
 
         return combinedRelationsList;
+    }
+
+    private static void enterExit() {
+        println("Enter \"exit\" to quit!");
+        if(scanner.nextLine().equals("exit")) {
+            System.exit(0);
+        }
+        else {
+            enterExit();
+        }
     }
 
     public static void main(String[] args) {
@@ -255,6 +267,7 @@ public class Main {
 //            //System.exit(0);
 //        }
 
-        System.exit(0);
+        String userInput = scanner.nextLine();
+        enterExit();
     }
 }
