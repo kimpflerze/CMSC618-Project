@@ -31,7 +31,7 @@ public class ExampleProgram {
         double[] mixedBagArray = new double[10];
 
         double sum = 0.0;
-        new1 = c;
+        c = new1;
 
         for(int i = 0; i < mixedBagArray.length; i++) {
             mixedBagArray[i] = Math.random();

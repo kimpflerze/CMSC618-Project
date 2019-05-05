@@ -6,14 +6,17 @@ public class Main {
 
     private static Scanner scanner = new Scanner(System.in);
 
+    //Dont test.
     public static void println(String string) {
         System.out.println(string);
     }
 
+    //Dont test.
     public static void print(String string) {
         System.out.print(string);
     }
 
+    //Dont test.
     public static void printIntArray(int[] array) {
         if(array.length != 0) {
             for (int i = 0; i < array.length; i++) {
@@ -22,12 +25,14 @@ public class Main {
         }
     }
 
+    //Dont test.
     public static void printStringArray(String[] array) {
         for(int i = 0; i < array.length; i++) {
             System.out.println(i + ": " + array[i]);
         }
     }
 
+    //Dont test.
     private static List<Variable> combineClasses(List<Variable[]> classResolvedRelationsList) {
         List<Variable> combinedRelationsList = new ArrayList<Variable>();
 
@@ -40,6 +45,7 @@ public class Main {
         return combinedRelationsList;
     }
 
+    //Dont test.
     private static void enterExit() {
         println("Enter \"exit\" to quit!");
         if(scanner.nextLine().equals("exit")) {
@@ -160,8 +166,8 @@ public class Main {
             for (Variable v : resolvedVariables) {
                 individualAnalysisStringList = new ArrayList<String>();
 //            	Variable [] tempVariables = Parser.deepCopyArray(resolvedVariables);
-            	Parser.taintSpread(resolvedVariables, v.name, 1);
-            	println("Variable selected for tain spread check = " + v.name);
+            	TaintSpread.taintSpread(resolvedVariables, v.name, 1);
+            	println("Variable selected for taint spread check = " + v.name);
             	for(int m = 0; m < resolvedVariables.length; m++) {
             		if(resolvedVariables[m].tainted == true) {
             			println(resolvedVariables[m].name + " is tainted.");
